@@ -39,9 +39,15 @@ On Linux (Proton), also set this Steam launch option: `WINEDLLOVERRIDES="winhttp
 
 See section 5 of `INSTALL.txt`.
 
+## Escalation update (2026-10-08, experimental)
+
+The Escalation mission in the v9 zip has almost no ground war and very few AI aircraft. A rebuilt Escalation follows the stock Escalation pattern: aircraft and warhead factories on both sides, vehicle depots at Delta Gate and Cinder Gate, timed reinforcement convoys, and a tiered win (break the enemy forward depot, then destroy their aircraft factories). It also moves AI taxi routes off the runways.
+
+Only the **host** needs it: download `IronjawSound-Escalation-esc2-2026-10-08.zip` from the [v9-esc2 pre-release](../../releases/tag/v9-esc2-2026-10-08), and replace the `Ironjaw Sound - Escalation` folder in your Missions folder with the one in the zip. Players who join get the mission from the host. This update has not been fully play-tested yet.
+
 ## Known issues
 
-- AI fixed-wing aircraft often fail to take off from the runway airbases. AI helicopters and VTOLs work, and players are not affected. A fix is coming in the next version.
+- In the v9 zip's missions, AI fixed-wing aircraft often fail to take off from the runway airbases. The Escalation update above includes a fix; the other missions get it in the next version.
 - Two-player multiplayer is still being tested. If something breaks in multiplayer, open an issue here.
 - A Nuclear Option update can break the map until it is rebuilt.
 
