@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <!--
+    TerrainLabNOPatch: BepInEx 5 companion plugin for the terrain-lab Nuclear Option map (next to NOMapLoader).
+    Builds offline against the game's own Managed DLLs and the BepInEx core of the test copy.
+    Nothing from the game or BepInEx is copied into the output (Private=false). Never commit those DLLs.
+  -->
+  <PropertyGroup>
+    <TargetFramework>netstandard2.1</TargetFramework>
+    <AssemblyName>TerrainLabNOPatch</AssemblyName>
+    <RootNamespace>TerrainLab.NOPatch</RootNamespace>
+    <Version>1.0.0</Version>
+    <LangVersion>9.0</LangVersion>
+    <Nullable>disable</Nullable>
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <CopyLocalLockFileAssemblies>false</CopyLocalLockFileAssemblies>
+    <AppendTargetFrameworkToOutputPath>true</AppendTargetFrameworkToOutputPath>
+    <DebugType>portable</DebugType>
+    <NoWarn>$(NoWarn);CS0649;CS0169;MSB3277</NoWarn>
+    <GameManagedDir Condition="'$(GameManagedDir)' == ''">/mnt/games/SteamLibrary/steamapps/common/Nuclear Option/NuclearOption_Data/Managed</GameManagedDir>
+    <BepInExCoreDir Condition="'$(BepInExCoreDir)' == ''">/mnt/games/no-maptest/Nuclear Option/BepInEx/core</BepInExCoreDir>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Reference Include="$(BepInExCoreDir)/BepInEx.dll" Private="false" />
+    <Reference Include="$(BepInExCoreDir)/0Harmony.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/Assembly-CSharp.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/Assembly-CSharp-firstpass.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/UnityEngine.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/UnityEngine.*Module.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/Unity.*.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/Mirage*.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/UniTask*.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/JamesFrowen*.dll" Private="false" />
+  </ItemGroup>
+</Project>
