@@ -21,7 +21,7 @@
 Ironjaw Sound is a free map for [Nuclear Option](https://store.steampowered.com/app/2168680/). It is
 fan-made and not affiliated with Shockfront Studios.
 
-**Status: 1.0.0, the first packaged release.** Made for Nuclear Option 0.34.1 (Steam build 24724372).
+**Status: 1.0.0, the first packaged release.** Made for Nuclear Option 0.34.2 (Steam build 24724372).
 All 15 missions were loaded from the release zip in a clean copy of the game and ran for three minutes
 each, with no warnings or errors in the log. Earlier builds were played online by two players, one of
 them on Windows. 1.0.0 itself has only been tested on Linux so far. Please report what you see.
