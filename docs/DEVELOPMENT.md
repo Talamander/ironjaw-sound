@@ -69,8 +69,10 @@ Python scripts, headless Blender and Unity in batch mode. That workspace is not 
 3. `SHA256SUMS` is signed with the release key:
    `ssh-keygen -Y sign -f <private key> -n file SHA256SUMS` writes `SHA256SUMS.sig`.
 4. The signature is checked against [allowed_signers](../allowed_signers) before anything is uploaded.
-5. The GitHub release gets the zip first, then `SHA256SUMS`, `SHA256SUMS.sig` and `allowed_signers`. The zip is
-   the first asset because NOMM and NOMNOM take the first asset as the mod.
+5. The GitHub release gets the zip, `SHA256SUMS`, `SHA256SUMS.sig` and `SHA256SUMS.allowed_signers` (the
+   `allowed_signers` file under a release name). NOMM and NOMNOM take the first asset as the mod, and GitHub lists
+   release assets by name, not upload order, so no other asset may sort before `IronjawSound-`. That is why the
+   signer file is not called `allowed_signers` on the release. Tags are plain `vX.Y.Z`.
 6. The NOMNOM manifest (`packaging/nomnom/IronjawSound.json`) gets a new entry at the top of `artifacts`, with the
    zip's URL and `sha256:` hash.
 

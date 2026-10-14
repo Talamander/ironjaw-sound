@@ -136,7 +136,7 @@ unzip the new zip in its place. Every change is listed in [CHANGELOG.md](CHANGEL
 
 ## Check your download
 
-Each release has `SHA256SUMS`, `SHA256SUMS.sig` and `allowed_signers` next to the zip. The signature
+Each release has `SHA256SUMS`, `SHA256SUMS.sig` and `SHA256SUMS.allowed_signers` next to the zip. The signature
 shows that the zip is the one I built and that nobody changed it on the way. You do not need to do this to play.
 
 Put the four files in one folder and open a terminal there.
@@ -145,14 +145,14 @@ On Windows (PowerShell):
 
 ```powershell
 Get-FileHash IronjawSound-1.0.0.zip -Algorithm SHA256
-cmd /c "ssh-keygen -Y verify -f allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS"
+cmd /c "ssh-keygen -Y verify -f SHA256SUMS.allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS"
 ```
 
 On Linux:
 
 ```sh
 sha256sum -c SHA256SUMS
-ssh-keygen -Y verify -f allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS
+ssh-keygen -Y verify -f SHA256SUMS.allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS
 ```
 
 The hash must match the line in `SHA256SUMS`, and the last command must print:
@@ -161,7 +161,7 @@ The hash must match the line in `SHA256SUMS`, and the last command must print:
 Good "file" signature for ironjaw-sound-release with ED25519 key SHA256:CQyIGTBz+aBQZyUJLL7gJOx5/pK+q500i8x5azawxJg
 ```
 
-Do not trust only the `allowed_signers` file that came with the download. Compare its key with the one
+Do not trust only the `SHA256SUMS.allowed_signers` file that came with the download. Compare its key with the one
 below, which is also in [allowed_signers](allowed_signers) in this repository. Every release is signed
 with this same key.
 

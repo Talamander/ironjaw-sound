@@ -31,7 +31,7 @@
       "version": "1.0.0",
       "category": "release",
       "type": "plugin",
-      "gameVersion": "0.34.1",
+      "gameVersion": "0.34.2",
       "downloadUrl": "https://github.com/Talamander/ironjaw-sound/releases/download/v1.0.0/IronjawSound-1.0.0.zip",
       "hash": "sha256:27f64258c7ea882e3832e97cbe7ff68e4c96474d5ae246460d0a8201d7e464e1",
       "dependencies": [
