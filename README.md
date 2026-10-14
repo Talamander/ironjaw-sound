@@ -89,10 +89,11 @@ get gate rings, a timer, split times and a results board.
 
 You need Nuclear Option from Steam. Close the game first.
 
-### With NOMM
+### With NOMM (not listed yet)
 
-Install **Ironjaw Sound** in [NOMM](https://github.com/KopterBuzz/NOMM), the Nuclear Option mod
-manager. NOMM installs BepInEx and NOMapLoader for you. Start the game.
+Ironjaw Sound is not in [NOMM](https://github.com/Combat787/NOMM), the Nuclear Option mod manager, yet.
+Until it is listed, install it by hand as below. Once it is listed, install **Ironjaw Sound** in NOMM;
+NOMM also installs BepInEx and NOMapLoader for you.
 
 ### By hand
 
