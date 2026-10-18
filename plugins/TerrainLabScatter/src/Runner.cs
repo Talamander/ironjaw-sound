@@ -38,6 +38,7 @@ namespace TerrainLab.Scatter
         int cellsPerSide;
         int drawLayer;
         GameObject colliderRoot;
+        Dictionary<int, GameObject> colliderOf;   // rock index -> its collider object
 
         // draw lists per (type, variant, lod)
         class DrawList
@@ -299,6 +300,7 @@ namespace TerrainLab.Scatter
                 if (pm == null) Plugin.Log.LogWarning("terrain PhysicMaterial not found; rock hits will look like armour hits.");
             }
             var baked = new HashSet<int>();
+            colliderOf = new Dictionary<int, GameObject>();
             int made = 0;
             float min = Plugin.ColliderMinSize.Value;
             for (int i = 0; i < rocks.Length; i++)
@@ -323,6 +325,7 @@ namespace TerrainLab.Scatter
                 mc.convex = true;
                 mc.sharedMesh = mesh;
                 if (pm != null) mc.sharedMaterial = pm;
+                colliderOf[i] = go;
                 made++;
             }
             colliderRoot.isStatic = true;
@@ -363,11 +366,51 @@ namespace TerrainLab.Scatter
         {
             if (colliderRoot != null) Destroy(colliderRoot);
             colliderRoot = null;
+            colliderOf = null;
             root = null;
             data = null;
             local = null;
             cells = null;
             lists = null;
+        }
+
+        // ------------------------------------------------------------------------------------------- clearing
+        /// <summary>
+        /// Removes every drawn rock for which inside(world position, bounding radius) is true, with its collider.
+        /// Called by TerrainLabGameplay (through reflection) to keep rocks off mission-placed buildings and
+        /// landing points, which the baked rock data does not know about. Returns the number of rocks removed;
+        /// 0 when no rocks are loaded. Stays in effect until the next map load.
+        /// </summary>
+        public static int ClearWhere(Func<Vector3, float, bool> inside)
+        {
+            var self = Instance;
+            if (self == null || self.data == null || self.cells == null || self.root == null || inside == null) return 0;
+            return self.Clear(inside);
+        }
+
+        int Clear(Func<Vector3, float, bool> inside)
+        {
+            var rocks = data.Rocks;
+            int removed = 0;
+            foreach (var list in cells)
+            {
+                if (list == null) continue;
+                for (int k = list.Count - 1; k >= 0; k--)
+                {
+                    int i = list[k];
+                    if (!inside(root.TransformPoint(rocks[i].Pos), radius[i])) continue;
+                    list.RemoveAt(k);
+                    keep[i] = false;
+                    if (colliderOf != null && colliderOf.TryGetValue(i, out var go))
+                    {
+                        if (go != null) Destroy(go);
+                        colliderOf.Remove(i);
+                    }
+                    removed++;
+                }
+            }
+            if (removed > 0) lastRebuild = -1f;   // redraw without them next frame
+            return removed;
         }
 
         // ------------------------------------------------------------------------------------------- drawing

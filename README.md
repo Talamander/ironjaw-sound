@@ -21,10 +21,11 @@
 Ironjaw Sound is a free map for [Nuclear Option](https://store.steampowered.com/app/2168680/). It is
 fan-made and not affiliated with Shockfront Studios.
 
-**Status: 1.0.0, the first packaged release.** Made for Nuclear Option 0.34.2 (Steam build 24724372).
-All 15 missions were loaded from the release zip in a clean copy of the game and ran for three minutes
-each, with no warnings or errors in the log. Earlier builds were played online by two players, one of
-them on Windows. 1.0.0 itself has only been tested on Linux so far. Please report what you see.
+**Status: 1.0.1.** Made for Nuclear Option 0.34.2 (Steam build 24724372). 1.0.1 fixes trees and rocks
+standing on helipads, FARPs and other mission buildings, and makes nuke and bomb scorch marks show on the map.
+1.0.1 was installed from the release zip in a clean copy of the game and loaded Free Flight and Escalation with no
+errors; all 15 missions were checked the same way for 1.0.0. 1.0.0 is being played online by others. Tested on
+Linux only so far. Please report what you see.
 
 ## What is on the map
 
@@ -89,11 +90,10 @@ get gate rings, a timer, split times and a results board.
 
 You need Nuclear Option from Steam. Close the game first.
 
-### With NOMM (not listed yet)
+### With NOMM
 
-Ironjaw Sound is not in [NOMM](https://github.com/Combat787/NOMM), the Nuclear Option mod manager, yet.
-Until it is listed, install it by hand as below. Once it is listed, install **Ironjaw Sound** in NOMM;
-NOMM also installs BepInEx and NOMapLoader for you.
+Install **Ironjaw Sound** in [NOMM](https://github.com/Combat787/NOMM), the Nuclear Option mod manager.
+NOMM also installs BepInEx and NOMapLoader for you, and offers new versions when they come out.
 
 ### By hand
 
@@ -104,7 +104,7 @@ NOMM also installs BepInEx and NOMapLoader for you.
 2. Download `NOMapLoader_1.0.5.dll` from
    [NOMapLoader's releases](https://github.com/MinecrackTyler/NOMapLoader/releases/tag/v1.0.5) and put
    it in `BepInEx/plugins/NOMapLoader/`.
-3. Download `IronjawSound-1.0.0.zip` from
+3. Download `IronjawSound-1.0.1.zip` from
    [Releases](https://github.com/Talamander/ironjaw-sound/releases).
 4. Make the folder `BepInEx/plugins/IronjawSound/` and unzip the whole zip into it. The DLLs and
    `map_ironjawsound` go directly in that folder, not in a subfolder.
@@ -115,11 +115,11 @@ To find your Nuclear Option folder: in Steam, right-click Nuclear Option, then *
 **Browse local files**.
 
 To check that it loaded, open `BepInEx/LogOutput.log` in your Nuclear Option folder. It should have the
-line `Ironjaw Sound 1.0.0 (2026-10-13), 52 files present with the expected sizes.`
+line `Ironjaw Sound 1.0.1 (2026-10-17), 52 files present with the expected sizes.`
 
 ### Updating from v9
 
-v9 put its files in four folders. 1.0.0 lives in one. Delete these first, then install as above:
+v9 put its files in four folders. 1.0.0 and later live in one. Delete these first, then install as above:
 
 - `BepInEx/plugins/NOMapLoader/map_ironjawsound` (keep `NOMapLoader_1.0.5.dll`)
 - `BepInEx/plugins/TerrainLabGameplay/`, `TerrainLabNOPatch/`, `TerrainLabScatter/` and
@@ -144,7 +144,7 @@ Put the four files in one folder and open a terminal there.
 On Windows (PowerShell):
 
 ```powershell
-Get-FileHash IronjawSound-1.0.0.zip -Algorithm SHA256
+Get-FileHash IronjawSound-1.0.1.zip -Algorithm SHA256
 cmd /c "ssh-keygen -Y verify -f SHA256SUMS.allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS"
 ```
 
@@ -219,7 +219,7 @@ after the problem, before you start the game again, because the game rewrites it
   it arrives late. The depot may move in a later release.
 - The track out of that basin is a rough mountain track, up to 34% steep in places. Vehicles get through,
   but slowly. It may be graded in a later release.
-- 1.0.0 has not been played in multiplayer or on Windows yet. Earlier builds have been.
+- 1.0.1 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
 
 ## More mods
 

@@ -3,6 +3,19 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## 1.0.1 (2026-10-17)
+
+### Fixed
+- Trees and rocks no longer stand on helipads, FARPs, landing zones, factories, fuel tanks and other buildings that
+  a mission places. TerrainLabGameplay clears them at runtime on Ironjaw Sound, so this also covers missions made by
+  other people. Settings are in the `[TreeClear]` section of the TerrainLabGameplay config.
+- Nuke and bomb scorch decals now draw on the Ironjaw Sound terrain, as they do on the stock maps. The terrain tiles
+  were missing the rendering layer that decals need.
+
+### Plugins
+- All four plugins are version 1.0.1. TerrainLabRace has no changes. The map bundle is the same file as in 1.0.0, so
+  1.0.0 and 1.0.1 players can play together.
+
 ## 1.0.0 (2026-10-13)
 
 First packaged release. One zip installs everything into one folder, by hand or with NOMM.

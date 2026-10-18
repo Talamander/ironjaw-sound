@@ -72,16 +72,22 @@ namespace TerrainLab.NOPatch
                 Bind(mat, pair.Key, t, pair.Value);
             }
 
+            // URP decals (DecalRendererFeature has decalLayers on) only draw on renderers whose renderingLayerMask
+            // overlaps the projector's. Stock terrain tiles use 3; the scorch, crater and Nuke Aftermath burn
+            // projectors use 2. Our tiles come out of the bundle with Unity's default 1, so no scorch drew on them.
+            uint layerMask = StockTileRenderingLayerMask(stock);
             int n = 0;
             foreach (var mr in ctx.Tiles)
             {
                 var mats = mr.sharedMaterials;
                 for (int i = 0; i < mats.Length; i++) mats[i] = mat;
                 mr.sharedMaterials = mats;
+                mr.renderingLayerMask |= layerMask;
                 n++;
             }
             OurMaterial = mat;
             Plugin.Log.LogInfo($"[3] Swapped material on {n} tiles: '{orig?.name}' ({orig?.shader?.name}) to '{mat.name}' ({mat.shader.name}), keywords [{string.Join(",", mat.shaderKeywords)}]");
+            Plugin.Log.LogInfo($"[3] Tile renderingLayerMask |= {layerMask} (stock terrain tiles), so ground decals project onto our terrain");
 
             // Without a ShaderGlobalManager (patch 4 off) nobody sets the world extent for the terrain shader.
             if (!Plugin.DetailSystemEnabled.Value)
@@ -89,6 +95,16 @@ namespace TerrainLab.NOPatch
                 Shader.SetGlobalVector("_Datum_WorldExtent", ctx.Map.MapSize / 2f);
                 Plugin.Log.LogInfo($"[3] Set _Datum_WorldExtent = {ctx.Map.MapSize / 2f} (no ShaderGlobalManager)");
             }
+        }
+
+        // The renderingLayerMask of a stock tile that uses the stock terrain material; 3 when none is found.
+        static uint StockTileRenderingLayerMask(Material stock)
+        {
+            var p = Stock.MapPrefab();
+            if (p != null && stock != null)
+                foreach (var mr in p.GetComponentsInChildren<MeshRenderer>(true))
+                    if (mr.sharedMaterial == stock) return mr.renderingLayerMask;
+            return 3u;
         }
 
         static Texture Tex(Material m, string prop) => m != null && m.HasProperty(prop) ? m.GetTexture(prop) : null;

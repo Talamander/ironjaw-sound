@@ -24,8 +24,10 @@ namespace TerrainLab.Gameplay
     /// Since 0.2.0 it also copies stock map buildings onto TerrainLab maps from a manifest in
     /// buildings/&lt;map prefab&gt;.json next to the DLL (see StockBuildings.cs). Since 0.2.4 it also shows TerrainLab_*
     /// maps under the player-facing name in Map.DisplayName (see MapName.cs); internal ids are not changed.
+    /// It also removes the baked trees and TerrainLabScatter rocks that stand on mission buildings and airbase
+    /// landing/service points, locally on each client (see TreeClear.cs, config section TreeClear).
     /// </summary>
-    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.0.0")]
+    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.0.1")]
     public class Plugin : BaseUnityPlugin
     {
         internal static ConfigEntry<bool> Enabled;
@@ -38,6 +40,13 @@ namespace TerrainLab.Gameplay
         internal static ConfigEntry<bool> MapImageTint;
         internal static ConfigEntry<string> MapDisplayName;
         internal static ConfigEntry<bool> InstallMissions;
+        internal static ConfigEntry<bool> TreeClearEnabled;
+        internal static ConfigEntry<float> TreeClearMargin;
+        internal static ConfigEntry<float> TreeClearHelipadMargin;
+        internal static ConfigEntry<float> TreeClearServiceRadius;
+        internal static ConfigEntry<float> TreeClearRockMargin;
+        internal static ConfigEntry<float> TreeClearMaxHalfSize;
+        internal static ConfigEntry<bool> TreeClearLog;
         internal static BepInEx.Logging.ManualLogSource Log;
 
         void Awake()
@@ -69,6 +78,21 @@ namespace TerrainLab.Gameplay
             InstallMissions = Config.Bind("Missions", "InstallMissions", true,
                 "Copy this release's missions (Missions/Ironjaw Sound - * next to the DLL) into the game's mission folder at start. " +
                 "Only adds or updates missions you have not edited; never deletes anything.");
+            TreeClearEnabled = Config.Bind("TreeClear", "Enabled", true,
+                "On our maps, remove the baked trees and rocks standing on mission-placed buildings (helipads, FARPs, LZ camps, " +
+                "dumps, radar sites, any mission's units) and on airbase landing and service points. Local only, no scorch.");
+            TreeClearMargin = Config.Bind("TreeClear", "Margin", 10f,
+                "Metres added round each building's mesh footprint: a tree whose trunk is inside goes (a big spruce's crown reaches about 8-10 m from its trunk).");
+            TreeClearHelipadMargin = Config.Bind("TreeClear", "HelipadMargin", 20f,
+                "Margin for helipads instead of Margin, so rotors clear the trees.");
+            TreeClearServiceRadius = Config.Bind("TreeClear", "ServicePointRadius", 10f,
+                "Half size (m) of the square kept clear at an airbase service point; landing points use their own size.");
+            TreeClearRockMargin = Config.Bind("TreeClear", "RockMargin", 1f,
+                "Metres added round each footprint for TerrainLabScatter rocks (on top of the rock's own radius).");
+            TreeClearMaxHalfSize = Config.Bind("TreeClear", "MaxHalfSize", 200f,
+                "Buildings whose mesh footprint is wider than twice this (m) are skipped (guards against odd meshes).");
+            TreeClearLog = Config.Bind("TreeClear", "Log", false,
+                "Log one line per footprint that had trees on it. The census line per poll is always logged when something was cleared.");
             var harmony = new Harmony("talamander.terrainlab.gameplay");
             if (InstallMissions.Value)
             {
@@ -87,7 +111,7 @@ namespace TerrainLab.Gameplay
             DontDestroyOnLoad(go);
             go.hideFlags = HideFlags.HideAndDontSave;
             go.AddComponent<Runner>();
-            Logger.LogInfo($"[TLGameplay] TerrainLabGameplay 1.0.0 loaded (enabled={Enabled.Value}, copyBuildings={CopyBuildings.Value}, mode={CopyMode.Value}).");
+            Logger.LogInfo($"[TLGameplay] TerrainLabGameplay 1.0.1 loaded (enabled={Enabled.Value}, copyBuildings={CopyBuildings.Value}, mode={CopyMode.Value}).");
         }
     }
 
@@ -135,6 +159,7 @@ namespace TerrainLab.Gameplay
                             $"gameState={GameManager.gameState} savedAirbases={mission.airbases?.Count ?? 0} " +
                             $"savedUnits(veh/ship/bld)={mission.vehicles?.Count ?? 0}/{mission.ships?.Count ?? 0}/{mission.buildings?.Count ?? 0}");
             }
+            TreeClear.Tick();
             if (!reported)
             {
                 if (FactionRegistry.airbaseLookup.Count == 0) return;
