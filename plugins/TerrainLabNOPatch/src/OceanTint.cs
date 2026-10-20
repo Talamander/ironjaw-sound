@@ -63,7 +63,7 @@ namespace TerrainLab.NOPatch
             var want = new Dictionary<string, float>();
             if (ours)
             {
-                foreach (var part in (Plugin.OceanFloats.Value ?? "").Split(';'))
+                foreach (var part in ((Plugin.OceanFloats.Value ?? "") + ";" + (Plugin.OceanShoreFoam.Value ?? "")).Split(';'))
                 {
                     var kv = part.Split('=');
                     if (kv.Length != 2) continue;

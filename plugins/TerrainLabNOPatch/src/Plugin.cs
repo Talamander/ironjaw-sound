@@ -21,7 +21,7 @@ namespace TerrainLab.NOPatch
     {
         public const string Guid = "talamander.terrainlab.nopatch";
         public const string Name = "TerrainLabNOPatch";
-        public const string Version = "1.0.1";
+        public const string Version = "1.0.2";
 
         internal static ManualLogSource Log;
         internal static Plugin Instance;
@@ -103,6 +103,7 @@ namespace TerrainLab.NOPatch
         internal static ConfigEntry<float> OceanStrength;
         internal static ConfigEntry<bool> OceanLogProperties;
         internal static ConfigEntry<string> OceanFloats;
+        internal static ConfigEntry<string> OceanShoreFoam;
 
         void Awake()
         {
@@ -127,6 +128,10 @@ namespace TerrainLab.NOPatch
             OceanFloats = Config.Bind("7.Ocean", "Floats", "_WaveHeight=1;Normal_Strength=0.25;_Whitecaps=0.2;_Wind=0.2",
                 "Water material floats set on our maps (calmer sheltered sound), 'Name=value;Name=value'. Stock " +
                 "WaterMat: _WaveHeight 2, Normal_Strength 0.397, _Whitecaps 0.6, _Wind 0.4. Other maps get the stock values back. Empty = stock.");
+            OceanShoreFoam = Config.Bind("7.Ocean", "ShoreFoam", "_EdgeStrength=0.25;_ShoreRoughWidth=2",
+                "Shore foam floats on our maps, same format as Floats and applied after it. Stock WaterMat: _EdgeStrength 0.645, " +
+                "_ShoreRoughWidth 5.56, which draws a bright white rim along shores facing the sun on our dark water. Empty = stock foam. " +
+                "A separate key from Floats so cfg files written by older versions get the new default.");
             OceanLogProperties = Config.Bind("7.Ocean", "LogProperties", false,
                 "Log the water shader's property list and values once per session.");
 

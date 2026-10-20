@@ -3,6 +3,22 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## 1.0.2 (2026-10-19)
+
+### Fixed
+- Escalation: the Primeva AI now captures bases. Its starting armour column sat in the closed Cinder Gate basin,
+  about 30 km of road from the nearest base, and never arrived in time, so Boscali took Hollin Mine and Dunmore
+  Crossing and Primeva took nothing. The column now starts on the Notch road, about the same distance from Dunmore
+  Crossing as the Boscali column is from Hollin Mine. Thanks to GryphusOne for the report.
+- The bright white outline along shores that face the sun is much weaker. The shore foam of the water shader is
+  turned down on Ironjaw Sound (new `ShoreFoam` setting in the `[7.Ocean]` section of the TerrainLabNOPatch config;
+  empty it to get the stock foam back). The water colour is unchanged.
+
+### Plugins
+- All four plugins are version 1.0.2. Only TerrainLabNOPatch has code changes. The map bundle is the same file as in
+  1.0.0 and 1.0.1, so players on all three versions can play together. The Escalation mission updates itself on the
+  next start unless you edited it.
+
 ## 1.0.1 (2026-10-17)
 
 ### Fixed
