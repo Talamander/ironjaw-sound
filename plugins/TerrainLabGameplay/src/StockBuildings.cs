@@ -215,14 +215,17 @@ namespace TerrainLab.Gameplay
         {
             var go = UnityEngine.Object.Instantiate(src, parent, false);
             go.name = $"{b.source} (TL {b.label})";
-            var e = src.transform.localEulerAngles;
+            // The stock rotation is read in world space. Most sources come from Ignus' island15_houses set, whose
+            // transform is turned 180 degrees about a diagonal axis and whose blocks are turned back about 90 degrees
+            // in local space. Up to 1.0.2 the local rotation alone was used, which laid those blocks on their side
+            // (seen in game 2026-10-23). In world space every stock building stands with its mesh y axis exactly up.
+            var w = src.transform.rotation;
+            var e = w.eulerAngles;
             go.transform.localPosition = new Vector3(b.x, b.y, b.z);
-            // The stock rotation holds the mesh import turn (a multiple of 90 degrees) plus a tilt of about 12.7
-            // degrees on the suburb blocks. The tilt makes one end of a 100 m block dig 20 m into our ground, so by
-            // default it is removed: the model axis nearest to world up is turned exactly upright (0.2.3).
-            var q = Quaternion.Euler(e.x, 0f, e.z);
-            if (!Plugin.KeepStockTilt.Value) q = Upright(q);
-            go.transform.localRotation = Quaternion.Euler(0f, b.heading, 0f) * q;
+            // The manifest heading replaces the stock yaw. Any stock tilt is removed by default: the model axis
+            // nearest to world up is turned exactly upright.
+            var q = Plugin.KeepStockTilt.Value ? w : Upright(w);
+            go.transform.localRotation = Quaternion.Euler(0f, b.heading, 0f) * NoYaw(q);
             go.transform.localScale = src.transform.lossyScale;
             try { Grounding.Apply(go, b.source, b.label, b.y, e); }
             catch (Exception ex) { Log.LogWarning($"[TLGameplay] ground: {b.source} ({b.label}) failed: {ex.Message}"); }
@@ -238,6 +241,15 @@ namespace TerrainLab.Gameplay
                 if (d > dot) { dot = d; best = q * a; }
             }
             return Quaternion.FromToRotation(best, Vector3.up) * q;
+        }
+
+        // Removes the turn about world up and keeps any tilt. An upright rotation becomes the identity.
+        static Quaternion NoYaw(Quaternion q)
+        {
+            Vector3 f = q * Vector3.forward; f.y = 0f;
+            if (f.sqrMagnitude < 1e-6f) { f = q * Vector3.up; f.y = 0f; }
+            if (f.sqrMagnitude < 1e-6f) return q;
+            return Quaternion.Inverse(Quaternion.LookRotation(f.normalized, Vector3.up)) * q;
         }
 
         static void MakeStatic(List<MapBuilding> clones, bool powerlines)

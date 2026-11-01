@@ -27,7 +27,7 @@ namespace TerrainLab.Gameplay
     /// It also removes the baked trees and TerrainLabScatter rocks that stand on mission buildings and airbase
     /// landing/service points, locally on each client (see TreeClear.cs, config section TreeClear).
     /// </summary>
-    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.0.2")]
+    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.0.3")]
     public class Plugin : BaseUnityPlugin
     {
         internal static ConfigEntry<bool> Enabled;
@@ -64,7 +64,7 @@ namespace TerrainLab.Gameplay
                     "the game). Static: plain local copies with local damage only.",
                     new AcceptableValueList<string>("Networked", "Static")));
             KeepStockTilt = Config.Bind("StockBuildings", "KeepStockTilt", false,
-                "Keep the tilt a stock building has (about 12.7 degrees on suburb blocks), so copies dig in at one end and float at the other.");
+                "Keep any tilt a stock building has in its stock map (none on the 0.34 maps), so copies may dig in at one end and float at the other.");
             GroundUnits = Config.Bind("StockBuildings", "GroundUnits", true,
                 "Move each house of a copied block up or down to follow this map's ground under it.");
             GroundingLog = Config.Bind("StockBuildings", "GroundingLog", false,
@@ -99,6 +99,8 @@ namespace TerrainLab.Gameplay
                 try { MissionInstaller.Install(harmony); }
                 catch (Exception e) { Logger.LogWarning($"[TLGameplay] mission install failed: {e.Message}"); }
             }
+            try { MissionPreviews.Patch(harmony); }
+            catch (Exception e) { Logger.LogWarning($"[TLGameplay] mission previews disabled: {e.Message}"); }
             try { StockBuildings.Patch(harmony); }
             catch (Exception e) { Logger.LogWarning($"[TLGameplay] stock buildings disabled: {e.Message}"); }
             try { MapTint.Patch(harmony); }
@@ -111,7 +113,7 @@ namespace TerrainLab.Gameplay
             DontDestroyOnLoad(go);
             go.hideFlags = HideFlags.HideAndDontSave;
             go.AddComponent<Runner>();
-            Logger.LogInfo($"[TLGameplay] TerrainLabGameplay 1.0.2 loaded (enabled={Enabled.Value}, copyBuildings={CopyBuildings.Value}, mode={CopyMode.Value}).");
+            Logger.LogInfo($"[TLGameplay] TerrainLabGameplay 1.0.3 loaded (enabled={Enabled.Value}, copyBuildings={CopyBuildings.Value}, mode={CopyMode.Value}).");
         }
     }
 

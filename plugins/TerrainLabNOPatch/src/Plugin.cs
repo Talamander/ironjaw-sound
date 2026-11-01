@@ -17,11 +17,12 @@ namespace TerrainLab.NOPatch
     /// </summary>
     [BepInPlugin(Guid, Name, Version)]
     [BepInDependency("NOMapLoader", BepInDependency.DependencyFlags.SoftDependency)]
+    [BepInDependency("com.javoski.custommaps", BepInDependency.DependencyFlags.SoftDependency)]
     public class Plugin : BaseUnityPlugin
     {
         public const string Guid = "talamander.terrainlab.nopatch";
         public const string Name = "TerrainLabNOPatch";
-        public const string Version = "1.0.2";
+        public const string Version = "1.0.3";
 
         internal static ManualLogSource Log;
         internal static Plugin Instance;
@@ -30,6 +31,7 @@ namespace TerrainLab.NOPatch
         internal static ConfigEntry<int> MapPrefix;
         internal static ConfigEntry<string> StockMapPrefab;
         internal static ConfigEntry<string> BundleNameContains;
+        internal static ConfigEntry<bool> NOCustomMapsCompat;
 
         // Patch 1: terrain PhysicMaterial identity
         internal static ConfigEntry<bool> TerrainMaterialEnabled;
@@ -116,6 +118,9 @@ namespace TerrainLab.NOPatch
                 "Stock map prefab (MapSettingsManager.Maps) to borrow the terrain material and DetailRenderer_Base from.");
             BundleNameContains = Config.Bind("General", "BundleNameContains", "map_terrainlab",
                 "Bundle files under BepInEx/plugins whose name contains this (or map_terrainlab / map_ironjawsound, always) are searched for assets the prefab does not reference (TreePositions, LushMap, GrassMask, splats).");
+            NOCustomMapsCompat = Config.Bind("General", "NOCustomMapsCompat", true,
+                "With NOCustomMaps installed too, hand the mission editor's New Mission map tiles back to the game's row " +
+                "after NOMapLoader moved them, so NOCustomMaps can still add its maps (Swiss Alps and others). See NOCustomMapsCompat.cs.");
 
             OceanEnabled = Config.Bind("7.Ocean", "Enabled", true,
                 "Patch 7: tint the stock ocean (WaterMat Deep_Water_Color / Shallow_Water_Color) on our maps; other maps get the stock colours back.");

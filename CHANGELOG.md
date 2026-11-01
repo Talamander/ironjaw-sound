@@ -3,6 +3,51 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## 1.0.3 (2026-10-24)
+
+### New
+- **Escalation North** mission. Escalation with the Primeva aircraft industry moved far from the front: one factory
+  complex on the Graylock plain and one in the Brekka Hills, the enrichment plant at the head of Graylock Fjord, each
+  with a long-range SAM battery and point defence. Graylock Strip is harder to capture. The factories of each complex
+  stand hundreds of metres apart, so one strike no longer takes out a whole complex. Thanks to migmadmarine for the
+  idea.
+- Every Ironjaw Sound mission has its own picture in the mission picker: a map of the area with the objectives, the
+  ships and their routes, the airbases and (for the races) the course, in place of the stock image.
+
+### Changed
+- **Ostrin Confrontation** no longer ends after a few minutes. The Primeva destroyer in the narrows could reach the
+  Boscali factories with its anti-ship missiles, and the Boscali destroyer and frigate could shell Graylock and Brekka
+  from the sea. Each is now a corvette, and the Boscali carrier group sits south of Kittiwake. The factories of both
+  sides are spread out and each complex has its own air defence.
+- **Gannet Sound Defence**: the Primeva carrier and landing group start much further out and the landing run comes
+  later. Corvettes instead of a destroyer and frigate escort the Primeva carrier, which could burn the Rook station
+  with anti-ship missiles from over 20 km. Rook Island has a long-range SAM battery, two Boltstrike sites and more
+  point defence.
+- **Port Ansel Defence**: the Primeva assault fleet used to sail straight to within gun range of the port and shell
+  the tank farm in about six minutes. It now waits about 30 km out, east of Ansel Reach, and moves in after ten
+  minutes, and the second wave comes later. A second frigate replaces its destroyer, whose railgun could reach the
+  port from 25 km. Port Ansel has a long-range SAM battery, two Boltstrike sites, guns at the tank farm and a second
+  corvette.
+- **Sill Strike**: the Boscali group is the carrier with two corvettes, further back; sinking the carrier is the
+  objective. The Sill has a long-range SAM battery, fjord pickets and point defence, with Boltstrikes at Brekka and
+  Graylock.
+- **SAM Hunt**: seven Primeva SAM sites instead of four (new ones on Ironjaw Crown, on the south shore of the narrows
+  and above Dunmore Crossing), plus two mobile pickets.
+- Thanks to Antithesis for the detailed balance reports.
+
+### Fixed
+- With NOCustomMaps installed next to Ironjaw Sound, its maps (Swiss Alps and others) were missing from the mission
+  editor's New Mission panel. TerrainLabNOPatch now hands the map tiles back to the game's own row so NOCustomMaps can
+  list them all together, and every tile selects its own map. Setting: `NOCustomMapsCompat` in the `[General]`
+  section of the TerrainLabNOPatch config. Thanks to migmadmarine for the report and Javoski for the help.
+- Houses and blocks of flats in some towns lay on their side. Their stock models are turned inside the stock map, and
+  only part of that turn was copied. Every stock building now stands upright.
+
+### Plugins
+- All four plugins are version 1.0.3. TerrainLabNOPatch and TerrainLabGameplay have code changes. The map bundle is the same file as in
+  1.0.0 to 1.0.2, so players on all four versions can play together. The changed missions update themselves on the
+  next start unless you edited them.
+
 ## 1.0.2 (2026-10-19)
 
 ### Fixed

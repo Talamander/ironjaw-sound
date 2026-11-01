@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b>A new map for Nuclear Option: an 82 km square of fjords, glaciers and island airfields, with 15 missions.</b>
+  <b>A new map for Nuclear Option: an 82 km square of fjords, glaciers and island airfields, with 16 missions.</b>
 </p>
 
 <p align="center">
@@ -21,12 +21,12 @@
 Ironjaw Sound is a free map for [Nuclear Option](https://store.steampowered.com/app/2168680/). It is
 fan-made and not affiliated with Shockfront Studios.
 
-**Status: 1.0.2.** Made for Nuclear Option 0.34.2 (Steam build 24724372). 1.0.2 makes the Primeva AI capture
-bases in Escalation and turns down the bright white foam outline along shores that face the sun. 1.0.1 fixed
-trees and rocks standing on helipads, FARPs and other mission buildings, and made nuke and bomb scorch marks
-show on the map. 1.0.2 was installed from the release zip in a clean copy of the game and loaded Free Flight
-and Escalation with no errors; all 15 missions were checked the same way for 1.0.0. 1.0.0 is being played
-online by others. Tested on Linux only so far. Please report what you see.
+**Status: 1.0.3.** Made for Nuclear Option 0.34.2 (Steam build 24724372). 1.0.3 adds the Escalation North
+mission, gives every mission its own picture in the mission picker, stands the stock town buildings upright,
+and rebalances Ostrin Confrontation, Gannet Sound Defence, Port Ansel Defence, Sill Strike and SAM Hunt so they
+no longer end in a few minutes. The changed missions were played headless in a copy of the game, and the 1.0.3
+plugins have been played by hand. All 15 original missions were installed from the zip in a clean copy of the
+game for 1.0.0. 1.0.0 is being played online by others. Tested on Linux only so far. Please report what you see.
 
 ## What is on the map
 
@@ -62,12 +62,13 @@ renamed.
 
 ## Missions
 
-The release comes with 15 missions. They all work in single player and multiplayer, and they show up
+The release comes with 16 missions. They all work in single player and multiplayer, and they show up
 in the game's mission list as "Ironjaw Sound - ...".
 
 | Mission | What it is |
 |---|---|
 | **Escalation** | The whole map at war, built like the stock Escalation. Factories, armour columns, five neutral landing zones, nuclear weapons late in the match. |
+| **Escalation North** | Escalation with the Primeva aircraft industry far from the front, each factory complex under its own long-range SAM battery. |
 | **Fjord Confrontation** | A combined-arms war across the Cinder Range, built like the stock Confrontation. |
 | **Supply Line** | Fjord Confrontation with a supply war: carry crates under a helicopter to capture sites and build forward supply dumps. |
 | **Ostrin Confrontation** | A Confrontation-style war over the east half of the map, with a Boscali carrier group. |
@@ -105,7 +106,7 @@ NOMM also installs BepInEx and NOMapLoader for you, and offers new versions when
 2. Download `NOMapLoader_1.0.5.dll` from
    [NOMapLoader's releases](https://github.com/MinecrackTyler/NOMapLoader/releases/tag/v1.0.5) and put
    it in `BepInEx/plugins/NOMapLoader/`.
-3. Download `IronjawSound-1.0.2.zip` from
+3. Download `IronjawSound-1.0.3.zip` from
    [Releases](https://github.com/Talamander/ironjaw-sound/releases).
 4. Make the folder `BepInEx/plugins/IronjawSound/` and unzip the whole zip into it. The DLLs and
    `map_ironjawsound` go directly in that folder, not in a subfolder.
@@ -116,7 +117,7 @@ To find your Nuclear Option folder: in Steam, right-click Nuclear Option, then *
 **Browse local files**.
 
 To check that it loaded, open `BepInEx/LogOutput.log` in your Nuclear Option folder. It should have the
-line `Ironjaw Sound 1.0.2 (2026-10-19), 52 files present with the expected sizes.`
+line `Ironjaw Sound 1.0.3 (2026-10-24), 70 files present with the expected sizes.`
 
 ### Updating from v9
 
@@ -145,7 +146,7 @@ Put the four files in one folder and open a terminal there.
 On Windows (PowerShell):
 
 ```powershell
-Get-FileHash IronjawSound-1.0.2.zip -Algorithm SHA256
+Get-FileHash IronjawSound-1.0.3.zip -Algorithm SHA256
 cmd /c "ssh-keygen -Y verify -f SHA256SUMS.allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS"
 ```
 
@@ -220,7 +221,7 @@ after the problem, before you start the game again, because the game rewrites it
   In Escalation it starts on the road out of the basin since 1.0.2.
 - The track out of that basin is a rough mountain track, up to 34% steep in places. Vehicles get through,
   but slowly. It may be graded in a later release.
-- 1.0.2 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
+- 1.0.3 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
 
 ## More mods
 

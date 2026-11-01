@@ -8,7 +8,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>TerrainLabNOPatch</AssemblyName>
     <RootNamespace>TerrainLab.NOPatch</RootNamespace>
-    <Version>1.0.2</Version>
+    <Version>1.0.3</Version>
     <LangVersion>9.0</LangVersion>
     <Nullable>disable</Nullable>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
@@ -27,6 +27,7 @@
     <Reference Include="$(GameManagedDir)/Assembly-CSharp.dll" Private="false" />
     <Reference Include="$(GameManagedDir)/Assembly-CSharp-firstpass.dll" Private="false" />
     <Reference Include="$(GameManagedDir)/UnityEngine.dll" Private="false" />
+    <Reference Include="$(GameManagedDir)/UnityEngine.UI.dll" Private="false" />
     <Reference Include="$(GameManagedDir)/UnityEngine.*Module.dll" Private="false" />
     <Reference Include="$(GameManagedDir)/Unity.*.dll" Private="false" />
     <Reference Include="$(GameManagedDir)/Mirage*.dll" Private="false" />
