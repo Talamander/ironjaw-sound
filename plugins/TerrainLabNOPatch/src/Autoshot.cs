@@ -165,9 +165,24 @@ namespace TerrainLab.NOPatch
             Exception err = null;
             try
             {
-                var cfg = NewMissionConfig.DefaultMission(MapKey.GameWorldPrefab(mapName));
-                cfg.Name = "TerrainLab autoshot";
-                MissionManager.NewMission(cfg);
+                // TERRAINLAB_AUTOSHOT_MISSION names a saved user mission: open that one in the editor instead of a
+                // blank mission, so its placed units are in the shots (target readability checks).
+                string missionName = Autoshot_Setting("TERRAINLAB_AUTOSHOT_MISSION", "");
+                if (missionName.Length > 0)
+                {
+                    if (!NuclearOption.SavedMission.MissionSaveLoad.TryLoad(
+                            new NuclearOption.SavedMission.MissionKey(missionName, NuclearOption.SavedMission.MissionGroup.User),
+                            out var saved, out var loadErr))
+                        throw new Exception($"could not load user mission '{missionName}': {loadErr}");
+                    MissionManager.SetMission(saved, false);
+                    Note($"loaded user mission '{missionName}' for the editor");
+                }
+                else
+                {
+                    var cfg = NewMissionConfig.DefaultMission(MapKey.GameWorldPrefab(mapName));
+                    cfg.Name = "TerrainLab autoshot";
+                    MissionManager.NewMission(cfg);
+                }
                 MissionManager.CurrentMission.environment.timeOfDay = tod;
                 // Clear sky by default; TERRAINLAB_AUTOSHOT_WEATHER (0-1) and TERRAINLAB_AUTOSHOT_CLOUD_ALT (m ASL)
                 // reproduce a mission's cloud for look comparisons.

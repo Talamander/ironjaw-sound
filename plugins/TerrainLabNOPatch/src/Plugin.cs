@@ -22,7 +22,7 @@ namespace TerrainLab.NOPatch
     {
         public const string Guid = "talamander.terrainlab.nopatch";
         public const string Name = "TerrainLabNOPatch";
-        public const string Version = "1.0.3";
+        public const string Version = "1.1.0";
 
         internal static ManualLogSource Log;
         internal static Plugin Instance;

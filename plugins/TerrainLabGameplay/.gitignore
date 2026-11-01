@@ -1,0 +1,6 @@
+# Build output and any local copies of game or BepInEx DLLs. Never commit these.
+bin/
+obj/
+lib/
+*.dll
+*.pdb

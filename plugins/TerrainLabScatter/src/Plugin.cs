@@ -18,7 +18,7 @@ namespace TerrainLab.Scatter
     [BepInPlugin("talamander.terrainlab.scatter", "TerrainLabScatter", Version)]
     public class Plugin : BaseUnityPlugin
     {
-        public const string Version = "1.0.3";
+        public const string Version = "1.1.0";
         internal static BepInEx.Logging.ManualLogSource Log;
         internal static string Dir;
 

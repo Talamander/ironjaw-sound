@@ -11,7 +11,7 @@
 | `trees/` | The snow spruce tree mesh and textures. |
 | `buildings/IronjawSound.json` | Where the copies of stock buildings (houses, apartment and office blocks, industrial sheds, wind turbines, power pylons) are placed. |
 | `courses/opt-1-v9/` | The three air race courses. |
-| `Missions/` | The 15 missions, and `known-old-hashes.txt` (hashes of mission files from earlier releases, see below). |
+| `Missions/` | The 17 missions, and `known-old-hashes.txt` (hashes of mission files from earlier releases, see below). |
 | `TerrainLabNOPatch.dll` | Registers the map with NOMapLoader, gives it its terrain look, trees, ocean and grass, and checks the release files. |
 | `TerrainLabGameplay.dll` | Installs the missions, places copies of the game's own buildings and sits them on the slope, names the map, and logs a short mission summary. |
 | `TerrainLabScatter.dll` | Draws the rocks and gives them colliders. |

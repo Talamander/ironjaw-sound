@@ -1,0 +1,732 @@
+{
+ "format": "terrainlab.race.course/1",
+ "id": "fjord-sprint",
+ "name": "Fjord Sprint",
+ "blurb": "Short, fast and low over water: north up Halvard Sound, through Ironjaw Narrows, west along Tarn Bay, a hop over the neck into the narrow north fjord and out through its S-bend to the open sea.",
+ "variant": "opt-1-v8",
+ "map_prefab": "IronjawSound",
+ "map_size_m": 81920.0,
+ "coords": "NO global metres: x east, y up, z north; map metres = global + map_size_m / 2",
+ "grid": {
+  "heading": 0.1,
+  "speed_ms": 150.0,
+  "approach_m": 6000.0,
+  "go_after_s": 40.0,
+  "slots": [
+   {
+    "x": 3939.5,
+    "y": 115.0,
+    "z": 4540.2
+   },
+   {
+    "x": 3999.5,
+    "y": 115.0,
+    "z": 4540.1
+   },
+   {
+    "x": 4059.5,
+    "y": 115.0,
+    "z": 4540.0
+   },
+   {
+    "x": 4119.5,
+    "y": 115.0,
+    "z": 4539.9
+   },
+   {
+    "x": 3939.2,
+    "y": 115.0,
+    "z": 4390.2
+   },
+   {
+    "x": 3999.2,
+    "y": 115.0,
+    "z": 4390.1
+   },
+   {
+    "x": 4059.2,
+    "y": 115.0,
+    "z": 4390.0
+   },
+   {
+    "x": 4119.2,
+    "y": 115.0,
+    "z": 4389.9
+   }
+  ]
+ },
+ "gates": [
+  {
+   "x": 4040.0,
+   "y": 115.0,
+   "z": 10540.0,
+   "name": "Start",
+   "heading": 0.1,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": 4045.9,
+   "y": 115.0,
+   "z": 13925.6,
+   "name": "Gate 1",
+   "heading": 347.98,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": 3422.4,
+   "y": 115.0,
+   "z": 15317.4,
+   "name": "Gate 2",
+   "heading": 343.06,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": 3297.6,
+   "y": 115.0,
+   "z": 16044.1,
+   "name": "Gate 3",
+   "heading": 333.16,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": 1760.4,
+   "y": 115.0,
+   "z": 17639.6,
+   "name": "Gate 4",
+   "heading": 315.63,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": 247.4,
+   "y": 115.0,
+   "z": 19162.9,
+   "name": "Gate 5",
+   "heading": 329.68,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -1.9,
+   "y": 115.0,
+   "z": 20041.4,
+   "name": "Narrows South",
+   "heading": 336.76,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -1350.6,
+   "y": 115.0,
+   "z": 22317.9,
+   "name": "Gate 7",
+   "heading": 337.48,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -1523.6,
+   "y": 115.0,
+   "z": 22992.2,
+   "name": "Narrows",
+   "heading": 328.72,
+   "radius": 90.0,
+   "split": true
+  },
+  {
+   "x": -3787.6,
+   "y": 115.0,
+   "z": 25019.3,
+   "name": "Gate 9",
+   "heading": 298.59,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -4550.9,
+   "y": 115.0,
+   "z": 25228.6,
+   "name": "Gate 10",
+   "heading": 278.01,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -7138.0,
+   "y": 115.0,
+   "z": 25259.7,
+   "name": "Gate 11",
+   "heading": 286.45,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -7993.5,
+   "y": 115.0,
+   "z": 25798.7,
+   "name": "Gate 12",
+   "heading": 286.42,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -11259.5,
+   "y": 115.0,
+   "z": 25835.0,
+   "name": "Gate 13",
+   "heading": 272.11,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -14467.3,
+   "y": 115.0,
+   "z": 26035.8,
+   "name": "Tarn Bay",
+   "heading": 277.65,
+   "radius": 90.0,
+   "split": true
+  },
+  {
+   "x": -15426.8,
+   "y": 115.0,
+   "z": 26234.7,
+   "name": "Gate 15",
+   "heading": 302.72,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -16764.2,
+   "y": 172.5,
+   "z": 28057.4,
+   "name": "Gate 16",
+   "heading": 331.19,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -17062.0,
+   "y": 131.8,
+   "z": 28818.8,
+   "name": "Gate 17",
+   "heading": 347.27,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -17122.6,
+   "y": 148.9,
+   "z": 29664.5,
+   "name": "The Neck",
+   "heading": 356.02,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -17186.7,
+   "y": 136.1,
+   "z": 30612.1,
+   "name": "Gate 19",
+   "heading": 343.34,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -17560.0,
+   "y": 115.0,
+   "z": 31273.4,
+   "name": "Fjord Mouth",
+   "heading": 339.03,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -17913.6,
+   "y": 115.0,
+   "z": 32868.2,
+   "name": "Gate 21",
+   "heading": 332.14,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -18690.7,
+   "y": 115.0,
+   "z": 33695.4,
+   "name": "Gate 22",
+   "heading": 325.38,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -19011.9,
+   "y": 152.9,
+   "z": 34352.9,
+   "name": "Fjord Bend",
+   "heading": 326.78,
+   "radius": 90.0,
+   "split": true
+  },
+  {
+   "x": -19755.8,
+   "y": 188.0,
+   "z": 35226.8,
+   "name": "Fjord Exit",
+   "heading": 339.73,
+   "radius": 90.0,
+   "split": false
+  },
+  {
+   "x": -19760.0,
+   "y": 115.0,
+   "z": 37040.0,
+   "name": "Finish",
+   "heading": 359.87,
+   "radius": 90.0,
+   "split": false
+  }
+ ],
+ "rules": {
+  "order": "strict",
+  "missed_gate_penalty_s": 10.0,
+  "jump_start_penalty_s": 5.0,
+  "crash": "respawn_last_gate",
+  "respawn_penalty_s": 0.0,
+  "time_limit_s": 1200.0
+ },
+ "stats": {
+  "length_m": 41251.0,
+  "gates": 26,
+  "eta_s": {
+   "fast jet": 179.4,
+   "attack plane": 229.2,
+   "helicopter": 589.3
+  },
+  "max_gate_alt_m": 188.0,
+  "min_gate_alt_m": 115.0,
+  "warnings": []
+ },
+ "check": [
+  {
+   "i": 0,
+   "map": [
+    45000.0,
+    51500.0
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 0.1,
+   "radius": 90.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Start",
+   "split": false
+  },
+  {
+   "i": 1,
+   "map": [
+    45005.9,
+    54885.6
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 347.98,
+   "radius": 90.0,
+   "turn_deg": -24.2,
+   "vmax_ms": 367.3,
+   "raised_m": 0.0,
+   "name": "Gate 1",
+   "split": false
+  },
+  {
+   "i": 2,
+   "map": [
+    44382.4,
+    56277.4
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 343.06,
+   "radius": 90.0,
+   "turn_deg": 14.4,
+   "vmax_ms": 333.1,
+   "raised_m": 0.0,
+   "name": "Gate 2",
+   "split": false
+  },
+  {
+   "i": 3,
+   "map": [
+    44257.6,
+    57004.1
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 333.16,
+   "radius": 90.0,
+   "turn_deg": -34.2,
+   "vmax_ms": 213.4,
+   "raised_m": 0.0,
+   "name": "Gate 3",
+   "split": false
+  },
+  {
+   "i": 4,
+   "map": [
+    42720.4,
+    58599.6
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 315.63,
+   "radius": 90.0,
+   "turn_deg": -0.9,
+   "vmax_ms": 2314.0,
+   "raised_m": 0.0,
+   "name": "Gate 4",
+   "split": false
+  },
+  {
+   "i": 5,
+   "map": [
+    41207.4,
+    60122.9
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 329.68,
+   "radius": 90.0,
+   "turn_deg": 29.0,
+   "vmax_ms": 259.2,
+   "raised_m": 0.0,
+   "name": "Gate 5",
+   "split": false
+  },
+  {
+   "i": 6,
+   "map": [
+    40958.1,
+    61001.4
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 336.76,
+   "radius": 90.0,
+   "turn_deg": -14.8,
+   "vmax_ms": 365.5,
+   "raised_m": 0.0,
+   "name": "Narrows South",
+   "split": false
+  },
+  {
+   "i": 7,
+   "map": [
+    39609.4,
+    63277.9
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 337.48,
+   "radius": 90.0,
+   "turn_deg": 16.3,
+   "vmax_ms": 304.3,
+   "raised_m": 0.0,
+   "name": "Gate 7",
+   "split": false
+  },
+  {
+   "i": 8,
+   "map": [
+    39436.4,
+    63952.2
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 328.72,
+   "radius": 90.0,
+   "turn_deg": -33.8,
+   "vmax_ms": 208.7,
+   "raised_m": 0.0,
+   "name": "Narrows",
+   "split": true
+  },
+  {
+   "i": 9,
+   "map": [
+    37172.4,
+    65979.3
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 298.59,
+   "radius": 90.0,
+   "turn_deg": -26.5,
+   "vmax_ms": 252.6,
+   "raised_m": 0.0,
+   "name": "Gate 9",
+   "split": false
+  },
+  {
+   "i": 10,
+   "map": [
+    36409.1,
+    66188.6
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 278.01,
+   "radius": 90.0,
+   "turn_deg": -14.6,
+   "vmax_ms": 342.1,
+   "raised_m": 0.0,
+   "name": "Gate 10",
+   "split": false
+  },
+  {
+   "i": 11,
+   "map": [
+    33822.0,
+    66219.7
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 286.45,
+   "radius": 90.0,
+   "turn_deg": 31.5,
+   "vmax_ms": 260.9,
+   "raised_m": 0.0,
+   "name": "Gate 11",
+   "split": false
+  },
+  {
+   "i": 12,
+   "map": [
+    32966.5,
+    66758.7
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 286.42,
+   "radius": 90.0,
+   "turn_deg": -31.6,
+   "vmax_ms": 260.6,
+   "raised_m": 0.0,
+   "name": "Gate 12",
+   "split": false
+  },
+  {
+   "i": 13,
+   "map": [
+    29700.5,
+    66795.0
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 272.11,
+   "radius": 90.0,
+   "turn_deg": 2.9,
+   "vmax_ms": 1541.5,
+   "raised_m": 0.0,
+   "name": "Gate 13",
+   "split": false
+  },
+  {
+   "i": 14,
+   "map": [
+    26492.7,
+    66995.8
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 277.65,
+   "radius": 90.0,
+   "turn_deg": 8.1,
+   "vmax_ms": 511.8,
+   "raised_m": 0.0,
+   "name": "Tarn Bay",
+   "split": true
+  },
+  {
+   "i": 15,
+   "map": [
+    25533.2,
+    67194.7
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 302.72,
+   "radius": 90.0,
+   "turn_deg": 42.0,
+   "vmax_ms": 220.2,
+   "raised_m": 0.0,
+   "name": "Gate 15",
+   "split": false
+  },
+  {
+   "i": 16,
+   "map": [
+    24195.8,
+    69017.4
+   ],
+   "alt": 172.5,
+   "ground": 57.5,
+   "heading": 331.19,
+   "radius": 90.0,
+   "turn_deg": 14.9,
+   "vmax_ms": 344.5,
+   "raised_m": 0.0,
+   "name": "Gate 16",
+   "split": false
+  },
+  {
+   "i": 17,
+   "map": [
+    23898.0,
+    69778.8
+   ],
+   "alt": 131.8,
+   "ground": 16.8,
+   "heading": 347.27,
+   "radius": 90.0,
+   "turn_deg": 17.3,
+   "vmax_ms": 319.9,
+   "raised_m": 0.0,
+   "name": "Gate 17",
+   "split": false
+  },
+  {
+   "i": 18,
+   "map": [
+    23837.4,
+    70624.5
+   ],
+   "alt": 148.9,
+   "ground": 29.8,
+   "heading": 356.02,
+   "radius": 90.0,
+   "turn_deg": 0.2,
+   "vmax_ms": 2846.0,
+   "raised_m": 4.1,
+   "name": "The Neck",
+   "split": false
+  },
+  {
+   "i": 19,
+   "map": [
+    23773.3,
+    71572.1
+   ],
+   "alt": 136.1,
+   "ground": 19.2,
+   "heading": 343.34,
+   "radius": 90.0,
+   "turn_deg": -25.6,
+   "vmax_ms": 252.1,
+   "raised_m": 1.9,
+   "name": "Gate 19",
+   "split": false
+  },
+  {
+   "i": 20,
+   "map": [
+    23400.0,
+    72233.4
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 339.03,
+   "radius": 90.0,
+   "turn_deg": 16.9,
+   "vmax_ms": 311.2,
+   "raised_m": 0.0,
+   "name": "Fjord Mouth",
+   "split": false
+  },
+  {
+   "i": 21,
+   "map": [
+    23046.4,
+    73828.2
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 332.14,
+   "radius": 90.0,
+   "turn_deg": -30.7,
+   "vmax_ms": 280.2,
+   "raised_m": 0.0,
+   "name": "Gate 21",
+   "split": false
+  },
+  {
+   "i": 22,
+   "map": [
+    22269.3,
+    74655.4
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 325.38,
+   "radius": 90.0,
+   "turn_deg": 17.2,
+   "vmax_ms": 303.4,
+   "raised_m": 0.0,
+   "name": "Gate 22",
+   "split": false
+  },
+  {
+   "i": 23,
+   "map": [
+    21948.1,
+    75312.9
+   ],
+   "alt": 152.9,
+   "ground": 0.0,
+   "heading": 326.78,
+   "radius": 90.0,
+   "turn_deg": -14.4,
+   "vmax_ms": 332.1,
+   "raised_m": 37.9,
+   "name": "Fjord Bend",
+   "split": true
+  },
+  {
+   "i": 24,
+   "map": [
+    21204.2,
+    76186.8
+   ],
+   "alt": 188.0,
+   "ground": 0.0,
+   "heading": 339.73,
+   "radius": 90.0,
+   "turn_deg": 40.3,
+   "vmax_ms": 243.9,
+   "raised_m": 73.0,
+   "name": "Fjord Exit",
+   "split": false
+  },
+  {
+   "i": 25,
+   "map": [
+    21200.0,
+    78000.0
+   ],
+   "alt": 115.0,
+   "ground": 0.0,
+   "heading": 359.87,
+   "radius": 90.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Finish",
+   "split": false
+  }
+ ]
+}

@@ -1,0 +1,1157 @@
+{
+ "format": "terrainlab.race.course/1",
+ "id": "grand-tour",
+ "name": "Grand Tour",
+ "blurb": "The whole map: out from Sorrel Field, up the Delta river, north through Hollin Gap between the coast range and the high peaks, along Tarn Bay and the Narrows, south down Halvard Sound and home past Fenwick Island and Ansel Reach.",
+ "variant": "opt-1-v9",
+ "map_prefab": "IronjawSound",
+ "map_size_m": 81920.0,
+ "coords": "NO global metres: x east, y up, z north; map metres = global + map_size_m / 2",
+ "grid": {
+  "heading": 321.62,
+  "speed_ms": 160.0,
+  "approach_m": 6000.0,
+  "go_after_s": 37.5,
+  "slots": [
+   {
+    "x": -16805.7,
+    "y": 140.8,
+    "z": -19719.6
+   },
+   {
+    "x": -16758.6,
+    "y": 140.8,
+    "z": -19682.4
+   },
+   {
+    "x": -16711.6,
+    "y": 140.8,
+    "z": -19645.1
+   },
+   {
+    "x": -16664.5,
+    "y": 140.8,
+    "z": -19607.9
+   },
+   {
+    "x": -16712.5,
+    "y": 140.8,
+    "z": -19837.2
+   },
+   {
+    "x": -16665.5,
+    "y": 140.8,
+    "z": -19800.0
+   },
+   {
+    "x": -16618.5,
+    "y": 140.8,
+    "z": -19762.7
+   },
+   {
+    "x": -16571.4,
+    "y": 140.8,
+    "z": -19725.5
+   }
+  ]
+ },
+ "gates": [
+  {
+   "x": -20460.0,
+   "y": 140.8,
+   "z": -14960.0,
+   "name": "Start",
+   "heading": 321.62,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -23503.5,
+   "y": 141.1,
+   "z": -11116.8,
+   "name": "Gate 1",
+   "heading": 335.35,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -24166.1,
+   "y": 140.4,
+   "z": -7684.8,
+   "name": "Gate 2",
+   "heading": 356.81,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -23905.0,
+   "y": 143.8,
+   "z": -4401.7,
+   "name": "Gate 3",
+   "heading": 3.09,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -23811.1,
+   "y": 135.5,
+   "z": -1114.8,
+   "name": "Delta River",
+   "heading": 351.05,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -24225.0,
+   "y": 137.7,
+   "z": 52.3,
+   "name": "Gate 5",
+   "heading": 324.82,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -25374.5,
+   "y": 151.8,
+   "z": 988.4,
+   "name": "Gate 6",
+   "heading": 289.98,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -27281.8,
+   "y": 185.0,
+   "z": 1015.0,
+   "name": "Gate 7",
+   "heading": 285.19,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -28744.3,
+   "y": 169.3,
+   "z": 1845.1,
+   "name": "Hollin South",
+   "heading": 320.62,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -30011.9,
+   "y": 273.2,
+   "z": 5668.2,
+   "name": "Gate 9",
+   "heading": 336.23,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -31435.5,
+   "y": 377.8,
+   "z": 8216.6,
+   "name": "Gate 10",
+   "heading": 331.61,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -32333.1,
+   "y": 445.5,
+   "z": 9933.7,
+   "name": "Gate 11",
+   "heading": 344.98,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -32416.1,
+   "y": 488.1,
+   "z": 11880.3,
+   "name": "Hollin Gap",
+   "heading": 2.87,
+   "radius": 110.0,
+   "split": true
+  },
+  {
+   "x": -32047.0,
+   "y": 455.6,
+   "z": 14446.6,
+   "name": "Gate 13",
+   "heading": 344.43,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -33109.4,
+   "y": 422.1,
+   "z": 15743.9,
+   "name": "Gate 14",
+   "heading": 315.55,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -33998.0,
+   "y": 539.7,
+   "z": 16500.8,
+   "name": "Gate 15",
+   "heading": 340.09,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -33759.2,
+   "y": 294.9,
+   "z": 17890.0,
+   "name": "Gate 16",
+   "heading": 17.65,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -31998.2,
+   "y": 165.4,
+   "z": 21575.8,
+   "name": "Gate 17",
+   "heading": 38.28,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -29894.9,
+   "y": 160.0,
+   "z": 23278.1,
+   "name": "Gate 18",
+   "heading": 62.93,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -25759.1,
+   "y": 144.7,
+   "z": 24398.9,
+   "name": "Gate 19",
+   "heading": 63.82,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -23983.3,
+   "y": 144.0,
+   "z": 25746.4,
+   "name": "Tarn Head",
+   "heading": 69.32,
+   "radius": 110.0,
+   "split": true
+  },
+  {
+   "x": -19193.0,
+   "y": 135.0,
+   "z": 26095.8,
+   "name": "Gate 21",
+   "heading": 85.88,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -14434.3,
+   "y": 135.0,
+   "z": 26435.0,
+   "name": "Gate 22",
+   "heading": 90.66,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -12029.2,
+   "y": 135.0,
+   "z": 26207.6,
+   "name": "Gate 23",
+   "heading": 112.28,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -8851.4,
+   "y": 135.0,
+   "z": 23619.1,
+   "name": "Gate 24",
+   "heading": 110.24,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -5186.2,
+   "y": 135.0,
+   "z": 23535.0,
+   "name": "Gate 25",
+   "heading": 93.08,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -1629.1,
+   "y": 135.0,
+   "z": 23232.8,
+   "name": "Narrows",
+   "heading": 125.4,
+   "radius": 110.0,
+   "split": true
+  },
+  {
+   "x": -921.3,
+   "y": 135.0,
+   "z": 21647.8,
+   "name": "Gate 27",
+   "heading": 146.89,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 1350.0,
+   "y": 135.0,
+   "z": 19138.6,
+   "name": "Gate 28",
+   "heading": 142.09,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 3200.0,
+   "y": 135.0,
+   "z": 16361.0,
+   "name": "Gate 29",
+   "heading": 160.31,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 3517.0,
+   "y": 135.0,
+   "z": 13198.0,
+   "name": "Gate 30",
+   "heading": 159.14,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 5443.4,
+   "y": 135.0,
+   "z": 10545.9,
+   "name": "Gate 31",
+   "heading": 161.65,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 5507.2,
+   "y": 135.0,
+   "z": 5421.5,
+   "name": "Halvard Sound",
+   "heading": 189.04,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 5026.1,
+   "y": 135.0,
+   "z": 4008.1,
+   "name": "Gate 33",
+   "heading": 210.92,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 1961.9,
+   "y": 135.0,
+   "z": 727.5,
+   "name": "Gate 34",
+   "heading": 209.32,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": 974.0,
+   "y": 136.0,
+   "z": -2812.1,
+   "name": "Fenwick",
+   "heading": 210.67,
+   "radius": 110.0,
+   "split": true
+  },
+  {
+   "x": -1179.5,
+   "y": 135.0,
+   "z": -4909.5,
+   "name": "Gate 36",
+   "heading": 226.92,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -3402.7,
+   "y": 135.0,
+   "z": -6905.6,
+   "name": "Gate 37",
+   "heading": 244.97,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -7959.9,
+   "y": 135.0,
+   "z": -7557.0,
+   "name": "Ansel Reach",
+   "heading": 266.11,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -12370.4,
+   "y": 135.0,
+   "z": -7529.8,
+   "name": "Gate 39",
+   "heading": 280.58,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -14428.7,
+   "y": 135.0,
+   "z": -6748.1,
+   "name": "Gate 40",
+   "heading": 270.24,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -17056.3,
+   "y": 141.0,
+   "z": -7720.8,
+   "name": "Gate 41",
+   "heading": 238.64,
+   "radius": 110.0,
+   "split": false
+  },
+  {
+   "x": -18960.0,
+   "y": 140.4,
+   "z": -9460.0,
+   "name": "Finish",
+   "heading": 227.59,
+   "radius": 110.0,
+   "split": false
+  }
+ ],
+ "rules": {
+  "order": "strict",
+  "missed_gate_penalty_s": 10.0,
+  "jump_start_penalty_s": 5.0,
+  "crash": "respawn_last_gate",
+  "respawn_penalty_s": 0.0,
+  "time_limit_s": 1200.0
+ },
+ "stats": {
+  "length_m": 127884.0,
+  "gates": 43,
+  "eta_s": {
+   "fast jet": 556.0,
+   "attack plane": 710.5,
+   "helicopter": 1826.9
+  },
+  "max_gate_alt_m": 540.0,
+  "min_gate_alt_m": 135.0,
+  "warnings": []
+ },
+ "check": [
+  {
+   "i": 0,
+   "map": [
+    20500.0,
+    26000.0
+   ],
+   "alt": 140.8,
+   "ground": 5.8,
+   "heading": 321.62,
+   "radius": 110.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Start",
+   "split": false
+  },
+  {
+   "i": 1,
+   "map": [
+    17456.5,
+    29843.2
+   ],
+   "alt": 141.1,
+   "ground": 6.1,
+   "heading": 335.35,
+   "radius": 110.0,
+   "turn_deg": 27.4,
+   "vmax_ms": 521.4,
+   "raised_m": 0.0,
+   "name": "Gate 1",
+   "split": false
+  },
+  {
+   "i": 2,
+   "map": [
+    16793.9,
+    33275.2
+   ],
+   "alt": 140.4,
+   "ground": 5.4,
+   "heading": 356.81,
+   "radius": 110.0,
+   "turn_deg": 15.5,
+   "vmax_ms": 678.6,
+   "raised_m": 0.0,
+   "name": "Gate 2",
+   "split": false
+  },
+  {
+   "i": 3,
+   "map": [
+    17055.0,
+    36558.3
+   ],
+   "alt": 143.8,
+   "ground": 8.8,
+   "heading": 3.09,
+   "radius": 110.0,
+   "turn_deg": -2.9,
+   "vmax_ms": 1567.9,
+   "raised_m": 0.0,
+   "name": "Gate 3",
+   "split": false
+  },
+  {
+   "i": 4,
+   "map": [
+    17148.9,
+    39845.2
+   ],
+   "alt": 135.5,
+   "ground": 0.5,
+   "heading": 351.05,
+   "radius": 110.0,
+   "turn_deg": -21.2,
+   "vmax_ms": 354.9,
+   "raised_m": 0.0,
+   "name": "Delta River",
+   "split": false
+  },
+  {
+   "i": 5,
+   "map": [
+    16735.0,
+    41012.3
+   ],
+   "alt": 137.7,
+   "ground": 2.7,
+   "heading": 324.82,
+   "radius": 110.0,
+   "turn_deg": -31.3,
+   "vmax_ms": 289.7,
+   "raised_m": 0.0,
+   "name": "Gate 5",
+   "split": false
+  },
+  {
+   "i": 6,
+   "map": [
+    15585.5,
+    41948.4
+   ],
+   "alt": 151.8,
+   "ground": 16.8,
+   "heading": 289.98,
+   "radius": 110.0,
+   "turn_deg": -38.4,
+   "vmax_ms": 284.5,
+   "raised_m": 0.0,
+   "name": "Gate 6",
+   "split": false
+  },
+  {
+   "i": 7,
+   "map": [
+    13678.2,
+    41975.0
+   ],
+   "alt": 185.0,
+   "ground": 50.0,
+   "heading": 285.19,
+   "radius": 110.0,
+   "turn_deg": 28.8,
+   "vmax_ms": 352.9,
+   "raised_m": 0.0,
+   "name": "Gate 7",
+   "split": false
+  },
+  {
+   "i": 8,
+   "map": [
+    12215.7,
+    42805.1
+   ],
+   "alt": 169.3,
+   "ground": 34.3,
+   "heading": 320.62,
+   "radius": 110.0,
+   "turn_deg": 42.1,
+   "vmax_ms": 288.2,
+   "raised_m": 0.0,
+   "name": "Hollin South",
+   "split": false
+  },
+  {
+   "i": 9,
+   "map": [
+    10948.1,
+    46628.2
+   ],
+   "alt": 273.2,
+   "ground": 138.2,
+   "heading": 336.23,
+   "radius": 110.0,
+   "turn_deg": -10.8,
+   "vmax_ms": 764.4,
+   "raised_m": 0.0,
+   "name": "Gate 9",
+   "split": false
+  },
+  {
+   "i": 10,
+   "map": [
+    9524.5,
+    49176.6
+   ],
+   "alt": 377.8,
+   "ground": 242.8,
+   "heading": 331.61,
+   "radius": 110.0,
+   "turn_deg": 1.6,
+   "vmax_ms": 1629.3,
+   "raised_m": 0.0,
+   "name": "Gate 10",
+   "split": false
+  },
+  {
+   "i": 11,
+   "map": [
+    8626.9,
+    50893.7
+   ],
+   "alt": 445.5,
+   "ground": 310.5,
+   "heading": 344.98,
+   "radius": 110.0,
+   "turn_deg": 25.2,
+   "vmax_ms": 406.1,
+   "raised_m": 0.0,
+   "name": "Gate 11",
+   "split": false
+  },
+  {
+   "i": 12,
+   "map": [
+    8543.9,
+    52840.3
+   ],
+   "alt": 488.1,
+   "ground": 353.1,
+   "heading": 2.87,
+   "radius": 110.0,
+   "turn_deg": 10.6,
+   "vmax_ms": 631.0,
+   "raised_m": 0.0,
+   "name": "Hollin Gap",
+   "split": true
+  },
+  {
+   "i": 13,
+   "map": [
+    8913.0,
+    55406.6
+   ],
+   "alt": 455.6,
+   "ground": 291.4,
+   "heading": 344.43,
+   "radius": 110.0,
+   "turn_deg": -47.5,
+   "vmax_ms": 269.1,
+   "raised_m": 28.6,
+   "name": "Gate 13",
+   "split": false
+  },
+  {
+   "i": 14,
+   "map": [
+    7850.6,
+    56703.9
+   ],
+   "alt": 422.1,
+   "ground": 235.6,
+   "heading": 315.55,
+   "radius": 110.0,
+   "turn_deg": -10.3,
+   "vmax_ms": 496.9,
+   "raised_m": 51.6,
+   "name": "Gate 14",
+   "split": false
+  },
+  {
+   "i": 15,
+   "map": [
+    6962.0,
+    57460.8
+   ],
+   "alt": 539.7,
+   "ground": 327.8,
+   "heading": 340.09,
+   "radius": 110.0,
+   "turn_deg": 59.3,
+   "vmax_ms": 197.3,
+   "raised_m": 72.9,
+   "name": "Gate 15",
+   "split": false
+  },
+  {
+   "i": 16,
+   "map": [
+    7200.8,
+    58850.0
+   ],
+   "alt": 294.9,
+   "ground": 159.9,
+   "heading": 17.65,
+   "radius": 110.0,
+   "turn_deg": 15.8,
+   "vmax_ms": 439.5,
+   "raised_m": 0.0,
+   "name": "Gate 16",
+   "split": false
+  },
+  {
+   "i": 17,
+   "map": [
+    8961.8,
+    62535.8
+   ],
+   "alt": 165.4,
+   "ground": 30.4,
+   "heading": 38.28,
+   "radius": 110.0,
+   "turn_deg": 25.5,
+   "vmax_ms": 476.8,
+   "raised_m": 0.0,
+   "name": "Gate 17",
+   "split": false
+  },
+  {
+   "i": 18,
+   "map": [
+    11065.1,
+    64238.1
+   ],
+   "alt": 160.0,
+   "ground": 25.0,
+   "heading": 62.93,
+   "radius": 110.0,
+   "turn_deg": 23.8,
+   "vmax_ms": 493.7,
+   "raised_m": 0.0,
+   "name": "Gate 18",
+   "split": false
+  },
+  {
+   "i": 19,
+   "map": [
+    15200.9,
+    65358.9
+   ],
+   "alt": 144.7,
+   "ground": 9.7,
+   "heading": 63.82,
+   "radius": 110.0,
+   "turn_deg": -22.0,
+   "vmax_ms": 466.5,
+   "raised_m": 0.0,
+   "name": "Gate 19",
+   "split": false
+  },
+  {
+   "i": 20,
+   "map": [
+    16976.7,
+    66706.4
+   ],
+   "alt": 144.0,
+   "ground": 9.0,
+   "heading": 69.32,
+   "radius": 110.0,
+   "turn_deg": 33.0,
+   "vmax_ms": 378.0,
+   "raised_m": 0.0,
+   "name": "Tarn Head",
+   "split": true
+  },
+  {
+   "i": 21,
+   "map": [
+    21767.0,
+    67055.8
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 85.88,
+   "radius": 110.0,
+   "turn_deg": 0.1,
+   "vmax_ms": 10410.2,
+   "raised_m": 0.0,
+   "name": "Gate 21",
+   "split": false
+  },
+  {
+   "i": 22,
+   "map": [
+    26525.7,
+    67395.0
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 90.66,
+   "radius": 110.0,
+   "turn_deg": 9.5,
+   "vmax_ms": 744.0,
+   "raised_m": 0.0,
+   "name": "Gate 22",
+   "split": false
+  },
+  {
+   "i": 23,
+   "map": [
+    28930.8,
+    67167.6
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 112.28,
+   "radius": 110.0,
+   "turn_deg": 33.8,
+   "vmax_ms": 388.9,
+   "raised_m": 0.0,
+   "name": "Gate 23",
+   "split": false
+  },
+  {
+   "i": 24,
+   "map": [
+    32108.6,
+    64579.1
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 110.24,
+   "radius": 110.0,
+   "turn_deg": -37.9,
+   "vmax_ms": 450.7,
+   "raised_m": 0.0,
+   "name": "Gate 24",
+   "split": false
+  },
+  {
+   "i": 25,
+   "map": [
+    35773.8,
+    64495.0
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 93.08,
+   "radius": 110.0,
+   "turn_deg": 3.5,
+   "vmax_ms": 1481.0,
+   "raised_m": 0.0,
+   "name": "Gate 25",
+   "split": false
+  },
+  {
+   "i": 26,
+   "map": [
+    39330.9,
+    64192.8
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 125.4,
+   "radius": 110.0,
+   "turn_deg": 61.1,
+   "vmax_ms": 236.4,
+   "raised_m": 0.0,
+   "name": "Narrows",
+   "split": true
+  },
+  {
+   "i": 27,
+   "map": [
+    40038.7,
+    62607.8
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 146.89,
+   "radius": 110.0,
+   "turn_deg": -18.1,
+   "vmax_ms": 455.2,
+   "raised_m": 0.0,
+   "name": "Gate 27",
+   "split": false
+  },
+  {
+   "i": 28,
+   "map": [
+    42310.0,
+    60098.6
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 142.09,
+   "radius": 110.0,
+   "turn_deg": 8.5,
+   "vmax_ms": 924.4,
+   "raised_m": 0.0,
+   "name": "Gate 28",
+   "split": false
+  },
+  {
+   "i": 29,
+   "map": [
+    44160.0,
+    57321.0
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 160.31,
+   "radius": 110.0,
+   "turn_deg": 27.9,
+   "vmax_ms": 492.7,
+   "raised_m": 0.0,
+   "name": "Gate 29",
+   "split": false
+  },
+  {
+   "i": 30,
+   "map": [
+    44477.0,
+    54158.0
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 159.14,
+   "radius": 110.0,
+   "turn_deg": -30.3,
+   "vmax_ms": 472.5,
+   "raised_m": 0.0,
+   "name": "Gate 30",
+   "split": false
+  },
+  {
+   "i": 31,
+   "map": [
+    46403.4,
+    51505.9
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 161.65,
+   "radius": 110.0,
+   "turn_deg": 35.3,
+   "vmax_ms": 442.5,
+   "raised_m": 0.0,
+   "name": "Gate 31",
+   "split": false
+  },
+  {
+   "i": 32,
+   "map": [
+    46467.2,
+    46381.5
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 189.04,
+   "radius": 110.0,
+   "turn_deg": 19.5,
+   "vmax_ms": 406.2,
+   "raised_m": 0.0,
+   "name": "Halvard Sound",
+   "split": false
+  },
+  {
+   "i": 33,
+   "map": [
+    45986.1,
+    44968.1
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 210.92,
+   "radius": 110.0,
+   "turn_deg": 24.2,
+   "vmax_ms": 363.4,
+   "raised_m": 0.0,
+   "name": "Gate 33",
+   "split": false
+  },
+  {
+   "i": 34,
+   "map": [
+    42921.9,
+    41687.5
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 209.32,
+   "radius": 110.0,
+   "turn_deg": -27.5,
+   "vmax_ms": 534.6,
+   "raised_m": 0.0,
+   "name": "Gate 34",
+   "split": false
+  },
+  {
+   "i": 35,
+   "map": [
+    41934.0,
+    38147.9
+   ],
+   "alt": 136.0,
+   "ground": 1.0,
+   "heading": 210.67,
+   "radius": 110.0,
+   "turn_deg": 30.2,
+   "vmax_ms": 460.4,
+   "raised_m": 0.0,
+   "name": "Fenwick",
+   "split": true
+  },
+  {
+   "i": 36,
+   "map": [
+    39780.5,
+    36050.5
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 226.92,
+   "radius": 110.0,
+   "turn_deg": 2.3,
+   "vmax_ms": 1672.3,
+   "raised_m": 0.0,
+   "name": "Gate 36",
+   "split": false
+  },
+  {
+   "i": 37,
+   "map": [
+    37557.3,
+    34054.4
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 244.97,
+   "radius": 110.0,
+   "turn_deg": 33.8,
+   "vmax_ms": 432.3,
+   "raised_m": 0.0,
+   "name": "Gate 37",
+   "split": false
+  },
+  {
+   "i": 38,
+   "map": [
+    33000.1,
+    33403.0
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 266.11,
+   "radius": 110.0,
+   "turn_deg": 8.5,
+   "vmax_ms": 1062.6,
+   "raised_m": 0.0,
+   "name": "Ansel Reach",
+   "split": false
+  },
+  {
+   "i": 39,
+   "map": [
+    28589.6,
+    33430.2
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 280.58,
+   "radius": 110.0,
+   "turn_deg": 20.4,
+   "vmax_ms": 481.6,
+   "raised_m": 0.0,
+   "name": "Gate 39",
+   "split": false
+  },
+  {
+   "i": 40,
+   "map": [
+    26531.3,
+    34211.9
+   ],
+   "alt": 135.0,
+   "ground": 0.0,
+   "heading": 270.24,
+   "radius": 110.0,
+   "turn_deg": -41.1,
+   "vmax_ms": 334.0,
+   "raised_m": 0.0,
+   "name": "Gate 40",
+   "split": false
+  },
+  {
+   "i": 41,
+   "map": [
+    23903.7,
+    33239.2
+   ],
+   "alt": 141.0,
+   "ground": 6.0,
+   "heading": 238.64,
+   "radius": 110.0,
+   "turn_deg": -22.1,
+   "vmax_ms": 500.8,
+   "raised_m": 0.0,
+   "name": "Gate 41",
+   "split": false
+  },
+  {
+   "i": 42,
+   "map": [
+    22000.0,
+    31500.0
+   ],
+   "alt": 140.4,
+   "ground": 5.4,
+   "heading": 227.59,
+   "radius": 110.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Finish",
+   "split": false
+  }
+ ]
+}

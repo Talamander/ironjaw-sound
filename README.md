@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <b>A new map for Nuclear Option: an 82 km square of fjords, glaciers and island airfields, with 16 missions.</b>
+  <b>A new map for Nuclear Option: an 82 km square of fjords, glaciers and island airfields, with 17 missions.</b>
 </p>
 
 <p align="center">
@@ -21,12 +21,12 @@
 Ironjaw Sound is a free map for [Nuclear Option](https://store.steampowered.com/app/2168680/). It is
 fan-made and not affiliated with Shockfront Studios.
 
-**Status: 1.0.3.** Made for Nuclear Option 0.34.2 (Steam build 24724372). 1.0.3 adds the Escalation North
-mission, gives every mission its own picture in the mission picker, stands the stock town buildings upright,
-and rebalances Ostrin Confrontation, Gannet Sound Defence, Port Ansel Defence, Sill Strike and SAM Hunt so they
-no longer end in a few minutes. The changed missions were played headless in a copy of the game, and the 1.0.3
-plugins have been played by hand. All 15 original missions were installed from the zip in a clean copy of the
-game for 1.0.0. 1.0.0 is being played online by others. Tested on Linux only so far. Please report what you see.
+**Status: 1.1.0.** Made for Nuclear Option 0.34.1 (Steam build 26327221). This release adds Icebreaker,
+reworks Escalation with forward helicopter bases and a Boscali carrier, fixes sunken mission buildings,
+and clears trees around mission sites and parked vehicles. All 16 earlier missions remain, for 17 in total.
+The map bundle is unchanged from 1.0.0–1.0.3, so those versions can join the same multiplayer game.
+The package checksum, signature and all 74 manifest files have been checked. Tested on Linux only so far.
+Please report what you see.
 
 ## What is on the map
 
@@ -62,12 +62,13 @@ renamed.
 
 ## Missions
 
-The release comes with 16 missions. They all work in single player and multiplayer, and they show up
+The release comes with 17 missions. They all work in single player and multiplayer, and they show up
 in the game's mission list as "Ironjaw Sound - ...".
 
 | Mission | What it is |
 |---|---|
-| **Escalation** | The whole map at war, built like the stock Escalation. Factories, armour columns, five neutral landing zones, nuclear weapons late in the match. |
+| **Escalation** | The whole map at war, with factories, armour columns, forward helicopter bases near Dunmore Crossing, a Boscali carrier, and nuclear weapons late in the match. |
+| **Icebreaker** | A 30–45 minute strike from Fenwick up the Lower Ice: radar picket, glacier depot, then the Col Works, while defending home against strike waves. |
 | **Escalation North** | Escalation with the Primeva aircraft industry far from the front, each factory complex under its own long-range SAM battery. |
 | **Fjord Confrontation** | A combined-arms war across the Cinder Range, built like the stock Confrontation. |
 | **Supply Line** | Fjord Confrontation with a supply war: carry crates under a helicopter to capture sites and build forward supply dumps. |
@@ -106,7 +107,7 @@ NOMM also installs BepInEx and NOMapLoader for you, and offers new versions when
 2. Download `NOMapLoader_1.0.5.dll` from
    [NOMapLoader's releases](https://github.com/MinecrackTyler/NOMapLoader/releases/tag/v1.0.5) and put
    it in `BepInEx/plugins/NOMapLoader/`.
-3. Download `IronjawSound-1.0.3.zip` from
+3. Download `IronjawSound-1.1.0.zip` from
    [Releases](https://github.com/Talamander/ironjaw-sound/releases).
 4. Make the folder `BepInEx/plugins/IronjawSound/` and unzip the whole zip into it. The DLLs and
    `map_ironjawsound` go directly in that folder, not in a subfolder.
@@ -117,7 +118,7 @@ To find your Nuclear Option folder: in Steam, right-click Nuclear Option, then *
 **Browse local files**.
 
 To check that it loaded, open `BepInEx/LogOutput.log` in your Nuclear Option folder. It should have the
-line `Ironjaw Sound 1.0.3 (2026-10-24), 70 files present with the expected sizes.`
+line `Ironjaw Sound 1.1.0 (2026-11-01), 74 files present with the expected sizes.`
 
 ### Updating from v9
 
@@ -146,7 +147,7 @@ Put the four files in one folder and open a terminal there.
 On Windows (PowerShell):
 
 ```powershell
-Get-FileHash IronjawSound-1.0.3.zip -Algorithm SHA256
+Get-FileHash IronjawSound-1.1.0.zip -Algorithm SHA256
 cmd /c "ssh-keygen -Y verify -f SHA256SUMS.allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS"
 ```
 
@@ -199,7 +200,7 @@ own missions are never touched. To turn the copying off, set `InstallMissions = 
 `BepInEx/config/talamander.terrainlab.gameplay.cfg`.
 
 **How big is it?**
-The download is 419 MB and it takes 489 MB on disk. Almost all of that is the map itself (terrain,
+The download is 422 MB and it takes 493 MB on disk. Almost all of that is the map itself (terrain,
 textures and the shaders the game needs on every graphics card).
 
 **Are the buildings from the game?**
@@ -215,13 +216,14 @@ after the problem, before you start the game again, because the game rewrites it
 
 ## Known issues
 
-- Nuclear strikes do not leave the blackened ground on Ironjaw Sound that they leave on the stock maps.
+- AI vehicles still get stuck at some road and bridge joins on the east side. Thanks to B-Rad_shArts for the report.
+- In Escalation, enemy fire can stop helicopters taking off from Dunmore West, and opening AI spawns can fill both Graylock South jet hangars. Follow-up fixes are in progress.
 - In Fjord Confrontation and Supply Line, Primeva's armour starts at the Cinder Gate depot, which sits in a
   closed mountain basin. It has to drive about 30 km of road to reach Dunmore Crossing, so it arrives late.
   In Escalation it starts on the road out of the basin since 1.0.2.
 - The track out of that basin is a rough mountain track, up to 34% steep in places. Vehicles get through,
   but slowly. It may be graded in a later release.
-- 1.0.3 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
+- 1.1.0 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
 
 ## More mods
 

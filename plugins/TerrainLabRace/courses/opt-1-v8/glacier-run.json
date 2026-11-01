@@ -1,0 +1,635 @@
+{
+ "format": "terrainlab.race.course/1",
+ "id": "glacier-run",
+ "name": "Glacier Run",
+ "blurb": "Longer and technical: from Halvard's inner bay west up the Lower Ice, over The Col at about 800 m, down onto the Upper Ice, round into the long north valley and out over Tarn Head glacier to the strip.",
+ "variant": "opt-1-v8",
+ "map_prefab": "IronjawSound",
+ "map_size_m": 81920.0,
+ "coords": "NO global metres: x east, y up, z north; map metres = global + map_size_m / 2",
+ "grid": {
+  "heading": 243.19,
+  "speed_ms": 130.0,
+  "approach_m": 6000.0,
+  "go_after_s": 46.15,
+  "slots": [
+   {
+    "x": 4035.8,
+    "y": 125.0,
+    "z": 9865.5
+   },
+   {
+    "x": 4008.7,
+    "y": 125.0,
+    "z": 9919.1
+   },
+   {
+    "x": 3981.7,
+    "y": 125.0,
+    "z": 9972.6
+   },
+   {
+    "x": 3954.6,
+    "y": 125.0,
+    "z": 10026.2
+   },
+   {
+    "x": 4169.7,
+    "y": 125.0,
+    "z": 9933.2
+   },
+   {
+    "x": 4142.6,
+    "y": 125.0,
+    "z": 9986.7
+   },
+   {
+    "x": 4115.6,
+    "y": 125.0,
+    "z": 10040.3
+   },
+   {
+    "x": 4088.5,
+    "y": 125.0,
+    "z": 10093.8
+   }
+  ]
+ },
+ "gates": [
+  {
+   "x": -1360.0,
+   "y": 125.0,
+   "z": 7240.0,
+   "name": "Start",
+   "heading": 273.19,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -4422.6,
+   "y": 204.5,
+   "z": 7410.9,
+   "name": "Inner Bay",
+   "heading": 264.03,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -5684.4,
+   "y": 315.3,
+   "z": 7069.8,
+   "name": "Gate 2",
+   "heading": 279.76,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -7024.3,
+   "y": 166.1,
+   "z": 7995.7,
+   "name": "Lower Ice",
+   "heading": 295.96,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -8508.5,
+   "y": 413.5,
+   "z": 8457.1,
+   "name": "Gate 4",
+   "heading": 303.44,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -9589.6,
+   "y": 621.6,
+   "z": 9728.4,
+   "name": "Gate 5",
+   "heading": 308.19,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -10910.5,
+   "y": 784.1,
+   "z": 10394.2,
+   "name": "Gate 6",
+   "heading": 289.52,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -12056.7,
+   "y": 969.4,
+   "z": 10643.7,
+   "name": "The Col",
+   "heading": 292.97,
+   "radius": 100.0,
+   "split": true
+  },
+  {
+   "x": -13598.8,
+   "y": 575.6,
+   "z": 11670.7,
+   "name": "Gate 8",
+   "heading": 279.3,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -14849.7,
+   "y": 300.3,
+   "z": 11333.9,
+   "name": "Upper Ice",
+   "heading": 270.64,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -18165.0,
+   "y": 339.5,
+   "z": 12306.8,
+   "name": "Gate 10",
+   "heading": 261.04,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -19992.3,
+   "y": 399.7,
+   "z": 11061.6,
+   "name": "Gate 11",
+   "heading": 248.77,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -21658.0,
+   "y": 467.4,
+   "z": 10822.0,
+   "name": "Gate 12",
+   "heading": 272.65,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23249.7,
+   "y": 626.6,
+   "z": 11203.6,
+   "name": "Valley Bend",
+   "heading": 321.94,
+   "radius": 100.0,
+   "split": true
+  },
+  {
+   "x": -23236.4,
+   "y": 467.6,
+   "z": 13072.4,
+   "name": "Gate 14",
+   "heading": 1.78,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23161.1,
+   "y": 421.1,
+   "z": 14442.4,
+   "name": "Gate 15",
+   "heading": 17.58,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -22466.7,
+   "y": 371.5,
+   "z": 15552.9,
+   "name": "Gate 16",
+   "heading": 22.08,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -21796.2,
+   "y": 332.1,
+   "z": 18670.3,
+   "name": "Gate 17",
+   "heading": 10.82,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -21413.0,
+   "y": 454.3,
+   "z": 20957.5,
+   "name": "North Valley",
+   "heading": 8.67,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -21129.6,
+   "y": 455.8,
+   "z": 23017.7,
+   "name": "Gate 19",
+   "heading": 328.97,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23919.9,
+   "y": 126.8,
+   "z": 24039.5,
+   "name": "Gate 20",
+   "heading": 316.71,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -24460.0,
+   "y": 134.0,
+   "z": 25840.0,
+   "name": "Finish",
+   "heading": 343.3,
+   "radius": 100.0,
+   "split": false
+  }
+ ],
+ "rules": {
+  "order": "strict",
+  "missed_gate_penalty_s": 10.0,
+  "jump_start_penalty_s": 5.0,
+  "crash": "respawn_last_gate",
+  "respawn_penalty_s": 0.0,
+  "time_limit_s": 1200.0
+ },
+ "stats": {
+  "length_m": 41002.0,
+  "gates": 22,
+  "eta_s": {
+   "fast jet": 178.3,
+   "attack plane": 227.8,
+   "helicopter": 585.7
+  },
+  "max_gate_alt_m": 969.0,
+  "min_gate_alt_m": 125.0,
+  "warnings": [
+   "Gate 6: raised 205 m above its ring height for line of sight",
+   "Gate 8: raised 327 m above its ring height for line of sight"
+  ]
+ },
+ "check": [
+  {
+   "i": 0,
+   "map": [
+    39600.0,
+    48200.0
+   ],
+   "alt": 125.0,
+   "ground": 0.0,
+   "heading": 273.19,
+   "radius": 100.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Start",
+   "split": false
+  },
+  {
+   "i": 1,
+   "map": [
+    36537.4,
+    48370.9
+   ],
+   "alt": 204.5,
+   "ground": 0.0,
+   "heading": 264.03,
+   "radius": 100.0,
+   "turn_deg": -18.3,
+   "vmax_ms": 392.4,
+   "raised_m": 79.5,
+   "name": "Inner Bay",
+   "split": false
+  },
+  {
+   "i": 2,
+   "map": [
+    35275.6,
+    48029.8
+   ],
+   "alt": 315.3,
+   "ground": 126.9,
+   "heading": 279.76,
+   "radius": 100.0,
+   "turn_deg": 49.8,
+   "vmax_ms": 231.4,
+   "raised_m": 60.3,
+   "name": "Gate 2",
+   "split": false
+  },
+  {
+   "i": 3,
+   "map": [
+    33935.7,
+    48955.7
+   ],
+   "alt": 166.1,
+   "ground": 35.9,
+   "heading": 295.96,
+   "radius": 100.0,
+   "turn_deg": -17.4,
+   "vmax_ms": 439.5,
+   "raised_m": 5.2,
+   "name": "Lower Ice",
+   "split": false
+  },
+  {
+   "i": 4,
+   "map": [
+    32451.5,
+    49417.1
+   ],
+   "alt": 413.5,
+   "ground": 175.9,
+   "heading": 303.44,
+   "radius": 100.0,
+   "turn_deg": 32.4,
+   "vmax_ms": 319.0,
+   "raised_m": 108.2,
+   "name": "Gate 4",
+   "split": false
+  },
+  {
+   "i": 5,
+   "map": [
+    31370.4,
+    50688.4
+   ],
+   "alt": 621.6,
+   "ground": 396.1,
+   "heading": 308.19,
+   "radius": 100.0,
+   "turn_deg": -22.9,
+   "vmax_ms": 372.8,
+   "raised_m": 100.5,
+   "name": "Gate 5",
+   "split": false
+  },
+  {
+   "i": 6,
+   "map": [
+    30049.5,
+    51354.2
+   ],
+   "alt": 784.1,
+   "ground": 454.0,
+   "heading": 289.52,
+   "radius": 100.0,
+   "turn_deg": -14.5,
+   "vmax_ms": 418.9,
+   "raised_m": 205.1,
+   "name": "Gate 6",
+   "split": false
+  },
+  {
+   "i": 7,
+   "map": [
+    28903.3,
+    51603.7
+   ],
+   "alt": 969.4,
+   "ground": 791.9,
+   "heading": 292.97,
+   "radius": 100.0,
+   "turn_deg": 21.4,
+   "vmax_ms": 343.5,
+   "raised_m": 52.6,
+   "name": "The Col",
+   "split": true
+  },
+  {
+   "i": 8,
+   "map": [
+    27361.2,
+    52630.7
+   ],
+   "alt": 575.6,
+   "ground": 123.8,
+   "heading": 279.3,
+   "radius": 100.0,
+   "turn_deg": -48.7,
+   "vmax_ms": 233.1,
+   "raised_m": 326.9,
+   "name": "Gate 8",
+   "split": false
+  },
+  {
+   "i": 9,
+   "map": [
+    26110.3,
+    52293.9
+   ],
+   "alt": 300.3,
+   "ground": 55.1,
+   "heading": 270.64,
+   "radius": 100.0,
+   "turn_deg": 31.4,
+   "vmax_ms": 295.8,
+   "raised_m": 120.2,
+   "name": "Upper Ice",
+   "split": false
+  },
+  {
+   "i": 10,
+   "map": [
+    22795.0,
+    53266.8
+   ],
+   "alt": 339.5,
+   "ground": 214.5,
+   "heading": 261.04,
+   "radius": 100.0,
+   "turn_deg": -50.6,
+   "vmax_ms": 298.0,
+   "raised_m": 0.0,
+   "name": "Gate 10",
+   "split": false
+  },
+  {
+   "i": 11,
+   "map": [
+    20967.7,
+    52021.6
+   ],
+   "alt": 399.7,
+   "ground": 274.7,
+   "heading": 248.77,
+   "radius": 100.0,
+   "turn_deg": 26.1,
+   "vmax_ms": 371.5,
+   "raised_m": 0.0,
+   "name": "Gate 11",
+   "split": false
+  },
+  {
+   "i": 12,
+   "map": [
+    19302.0,
+    51782.0
+   ],
+   "alt": 467.4,
+   "ground": 342.4,
+   "heading": 272.65,
+   "radius": 100.0,
+   "turn_deg": 21.7,
+   "vmax_ms": 403.1,
+   "raised_m": 0.0,
+   "name": "Gate 12",
+   "split": false
+  },
+  {
+   "i": 13,
+   "map": [
+    17710.3,
+    52163.6
+   ],
+   "alt": 626.6,
+   "ground": 501.5,
+   "heading": 321.94,
+   "radius": 100.0,
+   "turn_deg": 76.9,
+   "vmax_ms": 197.8,
+   "raised_m": 0.0,
+   "name": "Valley Bend",
+   "split": true
+  },
+  {
+   "i": 14,
+   "map": [
+    17723.6,
+    54032.4
+   ],
+   "alt": 467.6,
+   "ground": 342.6,
+   "heading": 1.78,
+   "radius": 100.0,
+   "turn_deg": 2.7,
+   "vmax_ms": 1044.3,
+   "raised_m": 0.0,
+   "name": "Gate 14",
+   "split": false
+  },
+  {
+   "i": 15,
+   "map": [
+    17798.9,
+    55402.4
+   ],
+   "alt": 421.1,
+   "ground": 296.1,
+   "heading": 17.58,
+   "radius": 100.0,
+   "turn_deg": 28.9,
+   "vmax_ms": 310.9,
+   "raised_m": 0.0,
+   "name": "Gate 15",
+   "split": false
+  },
+  {
+   "i": 16,
+   "map": [
+    18493.3,
+    56512.9
+   ],
+   "alt": 371.5,
+   "ground": 246.5,
+   "heading": 22.08,
+   "radius": 100.0,
+   "turn_deg": -19.9,
+   "vmax_ms": 376.8,
+   "raised_m": 0.0,
+   "name": "Gate 16",
+   "split": false
+  },
+  {
+   "i": 17,
+   "map": [
+    19163.8,
+    59630.3
+   ],
+   "alt": 332.1,
+   "ground": 207.1,
+   "heading": 10.82,
+   "radius": 100.0,
+   "turn_deg": -2.6,
+   "vmax_ms": 1385.5,
+   "raised_m": 0.0,
+   "name": "Gate 17",
+   "split": false
+  },
+  {
+   "i": 18,
+   "map": [
+    19547.0,
+    61917.5
+   ],
+   "alt": 454.3,
+   "ground": 209.0,
+   "heading": 8.67,
+   "radius": 100.0,
+   "turn_deg": -1.7,
+   "vmax_ms": 1643.0,
+   "raised_m": 120.3,
+   "name": "North Valley",
+   "split": false
+  },
+  {
+   "i": 19,
+   "map": [
+    19830.4,
+    63977.7
+   ],
+   "alt": 455.8,
+   "ground": 191.4,
+   "heading": 328.97,
+   "radius": 100.0,
+   "turn_deg": -77.7,
+   "vmax_ms": 221.4,
+   "raised_m": 139.3,
+   "name": "Gate 19",
+   "split": false
+  },
+  {
+   "i": 20,
+   "map": [
+    17040.1,
+    64999.5
+   ],
+   "alt": 126.8,
+   "ground": 1.8,
+   "heading": 316.71,
+   "radius": 100.0,
+   "turn_deg": 53.2,
+   "vmax_ms": 267.1,
+   "raised_m": 0.0,
+   "name": "Gate 20",
+   "split": false
+  },
+  {
+   "i": 21,
+   "map": [
+    16500.0,
+    66800.0
+   ],
+   "alt": 134.0,
+   "ground": 9.0,
+   "heading": 343.3,
+   "radius": 100.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Finish",
+   "split": false
+  }
+ ]
+}

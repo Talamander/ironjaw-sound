@@ -3,6 +3,35 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## 1.1.0 (2026-11-01)
+
+### New
+- **Icebreaker** mission. A layered strike from Fenwick Field up the Lower Ice: take out the radar picket at the
+  Gate, then the depot and armour park on the glacier under a radar SAM, then the Col Works enrichment plant. Enemy
+  fighters arrive within a couple of minutes, and Primeva strike waves go for Fenwick's fuel farm, so someone has to
+  defend home too. Fenwick has its own point defence, and the mission runs about 30 to 45 minutes.
+
+### Changed
+- **Escalation** reworked to play like the stock Escalation. More places to launch from, close to the fighting:
+  helicopters fly from the new Dunmore West and Dunmore East FARPs about 5 km from Dunmore Crossing (before, the
+  nearest helicopter base was about 12 km away), and Boscali jets also launch from a carrier off the Ostrin Isles.
+  The first helicopters reach the front in about two minutes. Fenwick Field is safer to take off from and land at:
+  no Primeva radar over it, more air defence, and Primeva's capture push on Fenwick comes later. Factories build new
+  airframes all match, and both sides get more AI aircraft when more players join the other side.
+- Factories, control towers, radar stations, guard towers, enrichment plants, fuel tanks and bunkers now stand at
+  their proper height in every mission. Until now they were placed 2 to 29 m too low, so factories looked half
+  buried. Thanks to migmadmarine for the report.
+- Mission sites and parked vehicles get round clearings in the trees, so targets and landing zones are easier to see.
+
+### Known issues
+- AI vehicles still get stuck at some road and bridge joins on the east side of the map. A fix is in progress.
+  Thanks to B-Rad_shArts for the report.
+
+### Plugins
+- All four plugins are version 1.1.0. TerrainLabGameplay, TerrainLabNOPatch and TerrainLabRace have code changes.
+  The map bundle is the same file as in 1.0.0 to 1.0.3, so players on all these versions can play together (the
+  host's missions are used). The changed missions update themselves on the next start unless you edited them.
+
 ## 1.0.3 (2026-10-24)
 
 ### New
@@ -44,7 +73,7 @@ named after the terrain build (v9) and a date.
   only part of that turn was copied. Every stock building now stands upright.
 
 ### Plugins
-- All four plugins are version 1.0.3. TerrainLabNOPatch and TerrainLabGameplay have code changes. The map bundle is the same file as in
+- All four plugins are version 1.0.3. Only TerrainLabNOPatch has code changes. The map bundle is the same file as in
   1.0.0 to 1.0.2, so players on all four versions can play together. The changed missions update themselves on the
   next start unless you edited them.
 

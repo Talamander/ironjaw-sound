@@ -42,6 +42,7 @@ namespace TerrainLab.Race
         readonly HashSet<int> seenAircraft = new HashSet<int>();
         readonly HashSet<int> airborne = new HashSet<int>();
         readonly HashSet<string> seenPlayers = new HashSet<string>();
+        readonly Dictionary<string, int> ranks = new Dictionary<string, int>();
         bool? spawnResult;
         static bool IsClientRole => Env("TERRAINLAB_MISSION_PROBE_ROLE", "host") == "client";
 
@@ -65,6 +66,8 @@ namespace TerrainLab.Race
             outDir = Path.GetFullPath(Path.Combine(Env("TERRAINLAB_MISSION_PROBE_DIR", "mission-probe"), DateTime.Now.ToString("yyyyMMdd-HHmmss")));
             Directory.CreateDirectory(outDir);
             Note($"probe on, report in {outDir}");
+            try { OutcomeDiag.Patch(); } catch (Exception e) { Note($"outcome diag failed: {e.Message}"); }
+            try { TargetDiag.Patch(); } catch (Exception e) { Note($"target diag failed: {e.Message}"); }
             StartCoroutine(Run());
         }
 
@@ -184,6 +187,12 @@ namespace TerrainLab.Race
             {
                 string w = Who(p);
                 if (seenPlayers.Add(w)) Note($"PLAYER {w}");
+                int r = p.PlayerRank;
+                if (!ranks.TryGetValue(w, out int old) || old != r)
+                {
+                    ranks[w] = r;
+                    Note($"RANK {w} rank {r} score {p.PlayerScore.ToString("F1", CultureInfo.InvariantCulture)}");
+                }
             }
         }
 

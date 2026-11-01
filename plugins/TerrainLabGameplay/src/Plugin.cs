@@ -27,7 +27,7 @@ namespace TerrainLab.Gameplay
     /// It also removes the baked trees and TerrainLabScatter rocks that stand on mission buildings and airbase
     /// landing/service points, locally on each client (see TreeClear.cs, config section TreeClear).
     /// </summary>
-    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.0.3")]
+    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.1.0")]
     public class Plugin : BaseUnityPlugin
     {
         internal static ConfigEntry<bool> Enabled;
@@ -47,6 +47,13 @@ namespace TerrainLab.Gameplay
         internal static ConfigEntry<float> TreeClearRockMargin;
         internal static ConfigEntry<float> TreeClearMaxHalfSize;
         internal static ConfigEntry<bool> TreeClearLog;
+        internal static ConfigEntry<bool> TreeClearObjectives;
+        internal static ConfigEntry<float> TreeClearObjectiveRadius;
+        internal static ConfigEntry<float> TreeClearObjectiveFeather;
+        internal static ConfigEntry<bool> TreeClearVehicles;
+        internal static ConfigEntry<float> TreeClearVehicleRadius;
+        internal static ConfigEntry<float> TreeClearAirbaseCenterRadius;
+        internal static ConfigEntry<int> TreeClearMaxBlastsPerPoll;
         internal static BepInEx.Logging.ManualLogSource Log;
 
         void Awake()
@@ -91,6 +98,20 @@ namespace TerrainLab.Gameplay
                 "Metres added round each footprint for TerrainLabScatter rocks (on top of the rock's own radius).");
             TreeClearMaxHalfSize = Config.Bind("TreeClear", "MaxHalfSize", 200f,
                 "Buildings whose mesh footprint is wider than twice this (m) are skipped (guards against odd meshes).");
+            TreeClearObjectives = Config.Bind("TreeClear", "ClearObjectives", true,
+                "Clear a round patch round every ground unit or building that a DestroyUnits objective names, so the AI can see and hit it.");
+            TreeClearObjectiveRadius = Config.Bind("TreeClear", "ObjectiveRadius", 80f,
+                "Radius (m) cleared round each DestroyUnits target.");
+            TreeClearObjectiveFeather = Config.Bind("TreeClear", "ObjectiveFeather", 30f,
+                "Width (m) of the thinned edge outside ObjectiveRadius: half the trees go at the inner edge, none at the outer.");
+            TreeClearVehicles = Config.Bind("TreeClear", "ClearVehicles", true,
+                "Clear a round patch round every ground vehicle that has stood still for 20 s (parked SAMs, pickets, garrisons).");
+            TreeClearVehicleRadius = Config.Bind("TreeClear", "VehicleRadius", 50f,
+                "Radius (m) cleared round each still ground vehicle.");
+            TreeClearAirbaseCenterRadius = Config.Bind("TreeClear", "AirbaseCenterRadius", 100f,
+                "Radius (m) cleared round the centre of capturable airbases without a runway (LZs, FARPs). 0 turns it off.");
+            TreeClearMaxBlastsPerPoll = Config.Bind("TreeClear", "MaxBlastsPerPoll", 300,
+                "Most tree clears sent per poll (every 2 s); the rest wait in a queue so a big mission does not hitch.");
             TreeClearLog = Config.Bind("TreeClear", "Log", false,
                 "Log one line per footprint that had trees on it. The census line per poll is always logged when something was cleared.");
             var harmony = new Harmony("talamander.terrainlab.gameplay");
@@ -113,7 +134,7 @@ namespace TerrainLab.Gameplay
             DontDestroyOnLoad(go);
             go.hideFlags = HideFlags.HideAndDontSave;
             go.AddComponent<Runner>();
-            Logger.LogInfo($"[TLGameplay] TerrainLabGameplay 1.0.3 loaded (enabled={Enabled.Value}, copyBuildings={CopyBuildings.Value}, mode={CopyMode.Value}).");
+            Logger.LogInfo($"[TLGameplay] TerrainLabGameplay 1.0.4 loaded (enabled={Enabled.Value}, copyBuildings={CopyBuildings.Value}, mode={CopyMode.Value}).");
         }
     }
 

@@ -20,7 +20,10 @@ namespace TerrainLab.Gameplay
     ///   - every differing file is one this installer wrote before (state file in BepInEx/config) or one shipped in an
     ///     earlier public release (Missions/known-old-hashes.txt): update it;
     ///   - otherwise the player edited the mission: leave the whole folder alone and log how to get the new one.
-    /// It never deletes anything and only touches folders whose name starts with "Ironjaw Sound - ".
+    /// Retired missions (Missions/retired.txt, one folder name per line) are removed from the player's folder, but
+    /// only when every file in it is one this installer wrote or one shipped in an earlier release (the same hash
+    /// test as an update). A folder with any other file, or with a subfolder, is kept and logged. Nothing else is
+    /// ever deleted, and only folders whose name starts with "Ironjaw Sound - " are touched.
     /// Dedicated servers that set their own mission directory get a second pass when the game switches to it.
     /// </summary>
     static class MissionInstaller
@@ -103,9 +106,45 @@ namespace TerrainLab.Gameplay
                 }
                 if (exists) updated++; else installed++;
             }
+            int retired = Retire(source, target, known, state);
             SaveState(state);
             Plugin.Log.LogInfo($"[TLGameplay] missions in {target}: {installed} installed, {updated} updated, " +
-                               $"{same} already current, {kept} kept (edited by you).");
+                               $"{same} already current, {kept} kept (edited by you), {retired} retired.");
+        }
+
+        static int Retire(string source, string target, HashSet<string> known, Dictionary<string, string> state)
+        {
+            string list = Path.Combine(source, "retired.txt");
+            if (!File.Exists(list)) return 0;
+            int removed = 0;
+            foreach (var raw in File.ReadAllLines(list))
+            {
+                string name = raw.Split('#')[0].Trim();
+                if (name.Length == 0) continue;
+                if (!name.StartsWith(Prefix, StringComparison.Ordinal) || name.IndexOfAny(new[] { '/', '\\' }) >= 0 ||
+                    name.Contains("..") || Directory.Exists(Path.Combine(source, name)))
+                    continue;   // not ours, a path, or still shipped: never delete
+                string dst = Path.Combine(target, name);
+                if (!Directory.Exists(dst)) continue;
+                try
+                {
+                    var files = Directory.GetFiles(dst);
+                    if (Directory.GetDirectories(dst).Length > 0 || files.Any(f => !known.Contains(Sha256(f))))
+                    {
+                        Plugin.Log.LogWarning($"[TLGameplay] '{name}' is retired in this release but you changed it, " +
+                                              $"so it stays in {target}. Delete it yourself if you no longer want it.");
+                        continue;
+                    }
+                    foreach (var f in files) File.Delete(f);
+                    Directory.Delete(dst, false);
+                    foreach (var k in state.Keys.Where(k => k.StartsWith(name + "/", StringComparison.Ordinal)).ToList())
+                        state.Remove(k);
+                    removed++;
+                    Plugin.Log.LogInfo($"[TLGameplay] removed retired mission '{name}' from {target}.");
+                }
+                catch (Exception e) { Plugin.Log.LogWarning($"[TLGameplay] could not remove retired mission '{name}': {e.Message}"); }
+            }
+            return removed;
         }
 
         static Dictionary<string, string> LoadState()

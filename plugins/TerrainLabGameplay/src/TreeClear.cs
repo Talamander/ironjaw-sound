@@ -27,6 +27,12 @@ namespace TerrainLab.Gameplay
     ///
     /// Purely local and deterministic (every peer runs the same clears from the same units); the headless server
     /// has no DetailRenderer and does nothing.
+    ///
+    /// 1.0.4 adds round clearings so the AI can see and shoot what a mission asks it to kill (Escalation round 2,
+    /// 2026-10-31): ObjectiveRadius (80 m) round every ground unit or building named by a DestroyUnits objective,
+    /// with a hashed ObjectiveFeather (30 m) edge so the hole does not look stamped; VehicleRadius (50 m) round every
+    /// ground vehicle that has stood still for a while; AirbaseCenterRadius (100 m) round the centre of capturable
+    /// airbases without a runway (LZs and FARPs). Trees found are queued and at most MaxBlastsPerPoll go per poll.
     /// </summary>
     static class TreeClear
     {
@@ -39,7 +45,11 @@ namespace TerrainLab.Gameplay
             public float HalfW, HalfL;  // m, without margin
             public string What;
             public float Margin;        // m round the rectangle for trees
+            public bool Circle;         // round clearing: radius HalfW + Margin
+            public float Feather;       // m of thinning outside a round clearing
         }
+
+        struct Still { public Vector3 Pos; public float Since; }
 
         static int rendererId;                       // DetailRenderer instance the state below belongs to
         static readonly HashSet<int> done = new HashSet<int>();
@@ -48,6 +58,14 @@ namespace TerrainLab.Gameplay
         static bool[] gone;
         static Dictionary<long, List<int>> grid;
         const float Cell = 64f;
+        static readonly HashSet<int> doneObjective = new HashSet<int>();
+        static readonly HashSet<int> doneVehicle = new HashSet<int>();
+        static readonly HashSet<int> doneCenter = new HashSet<int>();
+        static readonly Dictionary<int, Still> still = new Dictionary<int, Still>();
+        static readonly Queue<int> pending = new Queue<int>();
+        static HashSet<string> objectiveTargets;
+        static object objectiveMission;
+        const float StillSeconds = 20f, StillMove = 2f;
         static int totalTrees, totalRocks, totalUnits, errors;
         static MethodInfo clearRocks;
         static bool rocksLooked;
@@ -78,6 +96,12 @@ namespace TerrainLab.Gameplay
                 rendererId = dr.GetInstanceID();
                 done.Clear();
                 donePoints.Clear();
+                doneObjective.Clear();
+                doneVehicle.Clear();
+                doneCenter.Clear();
+                still.Clear();
+                pending.Clear();
+                objectiveMission = null;
                 totalTrees = totalRocks = totalUnits = 0;
             }
             var blast = blastManagerField?.GetValue(dr) as BlastManager;
@@ -99,9 +123,17 @@ namespace TerrainLab.Gameplay
                     foreach (var t in sps)
                         if (t != null) AddPoint(feet, t, Plugin.TreeClearServiceRadius.Value, $"{ab.name} service point");
             }
-            if (feet.Count == 0) return;
-
+            AddRoundClearings(feet);
             float r = ClearRadius(dr);
+            int flushed;
+            if (feet.Count == 0)
+            {
+                flushed = Flush(blast, r);
+                if (flushed > 0 && Plugin.TreeClearLog.Value)
+                    Log.LogInfo($"[TLGameplay] tree clear: {flushed} queued trees cleared, {pending.Count} still queued");
+                return;
+            }
+
             int cleared = 0, hitUnits = 0;
             var origin = Datum.originPosition;
             foreach (var f in feet)
@@ -110,7 +142,7 @@ namespace TerrainLab.Gameplay
                 // Footprint in global coordinates: world minus the floating origin.
                 var c = f.Center - origin;
                 float margin = f.Margin;
-                float reach = Mathf.Sqrt(f.HalfW * f.HalfW + f.HalfL * f.HalfL) + margin;
+                float reach = (f.Circle ? f.HalfW : Mathf.Sqrt(f.HalfW * f.HalfW + f.HalfL * f.HalfL)) + margin + f.Feather;
                 int x0 = Mathf.FloorToInt((c.x - reach) / Cell), x1 = Mathf.FloorToInt((c.x + reach) / Cell);
                 int z0 = Mathf.FloorToInt((c.z - reach) / Cell), z1 = Mathf.FloorToInt((c.z + reach) / Cell);
                 for (int gx = x0; gx <= x1; gx++)
@@ -119,10 +151,9 @@ namespace TerrainLab.Gameplay
                         if (!grid.TryGetValue(Key(gx, gz), out var list)) continue;
                         foreach (int i in list)
                         {
-                            if (gone[i] || !Inside(f, c, trees[i], margin)) continue;
+                            if (gone[i] || !Takes(f, c, i, margin)) continue;
                             gone[i] = true;
-                            var p = trees[i];
-                            blast.Blasts.Enqueue(new BlastManager.DetailBlast(new GlobalPosition(p.x, p.y, p.z), r));
+                            pending.Enqueue(i);
                             n++;
                         }
                     }
@@ -135,6 +166,7 @@ namespace TerrainLab.Gameplay
                 }
             }
 
+            flushed = Flush(blast, r);
             int rocks = ClearRocks(feet, Plugin.TreeClearRockMargin.Value);
             totalTrees += cleared;
             totalRocks += rocks;
@@ -142,7 +174,90 @@ namespace TerrainLab.Gameplay
             if (cleared > 0 || rocks > 0)
                 Log.LogInfo($"[TLGameplay] tree clear census: {feet.Count} new footprints, {cleared} trees on {hitUnits} of them and " +
                             $"{rocks} rocks removed; session total {totalUnits} footprints, {totalTrees} trees, {totalRocks} rocks " +
-                            $"(blast radius {r:F2})");
+                            $"(blast radius {r:F2}; {flushed} blasts this poll, {pending.Count} queued)");
+        }
+
+        /// Sends at most MaxBlastsPerPoll queued tree clears to the BlastManager.
+        static int Flush(BlastManager blast, float r)
+        {
+            int cap = Mathf.Max(1, Plugin.TreeClearMaxBlastsPerPoll.Value), n = 0;
+            while (pending.Count > 0 && n < cap)
+            {
+                var p = trees[pending.Dequeue()];
+                blast.Blasts.Enqueue(new BlastManager.DetailBlast(new GlobalPosition(p.x, p.y, p.z), r));
+                n++;
+            }
+            return n;
+        }
+
+        /// Round clearings: DestroyUnits targets, ground vehicles that stand still, and runway-less capturable airbases.
+        static void AddRoundClearings(List<Footprint> feet)
+        {
+            var mission = MissionManager.CurrentMission;
+            if (Plugin.TreeClearObjectives.Value && mission != null && !ReferenceEquals(mission, objectiveMission))
+            {
+                objectiveMission = mission;
+                objectiveTargets = new HashSet<string>();
+                if (mission.objectives != null)
+                    foreach (var o in mission.objectives)
+                        if (o is NuclearOption.SavedMission.Objectives.DestroyUnitSavedObjective d && d.targetUnits != null)
+                            foreach (var name in d.targetUnits)
+                                if (!string.IsNullOrEmpty(name)) objectiveTargets.Add(name);
+                Log.LogInfo($"[TLGameplay] tree clear: {objectiveTargets.Count} DestroyUnits target names in this mission");
+            }
+            float now = Time.unscaledTime;
+            foreach (var u in UnitRegistry.allUnits)
+            {
+                if (u == null || u.disabled || !(u is GroundVehicle || u is Building)) continue;
+                int id = u.GetInstanceID();
+                var pos = u.transform.position;
+                if (Plugin.TreeClearObjectives.Value && objectiveTargets != null && !string.IsNullOrEmpty(u.UniqueName) &&
+                    objectiveTargets.Contains(u.UniqueName) && doneObjective.Add(id))
+                    feet.Add(Round(pos, Plugin.TreeClearObjectiveRadius.Value, Plugin.TreeClearObjectiveFeather.Value, $"objective target '{u.UniqueName}'"));
+                if (!Plugin.TreeClearVehicles.Value || !(u is GroundVehicle) || doneVehicle.Contains(id)) continue;
+                if (!still.TryGetValue(id, out var s) || (pos - s.Pos).sqrMagnitude > StillMove * StillMove)
+                {
+                    still[id] = new Still { Pos = pos, Since = now };
+                    continue;
+                }
+                if (now - s.Since < StillSeconds) continue;
+                doneVehicle.Add(id);
+                still.Remove(id);
+                feet.Add(Round(pos, Plugin.TreeClearVehicleRadius.Value, 0f, $"still vehicle '{u.unitName}'"));
+            }
+            float cr = Plugin.TreeClearAirbaseCenterRadius.Value;
+            if (cr <= 0f) return;
+            foreach (var ab in FactionRegistry.airbaseLookup.Values)
+            {
+                if (ab == null || ab.center == null || !doneCenter.Add(ab.GetInstanceID())) continue;
+                var saved = ab.SavedAirbase;
+                bool capturable = saved == null || saved.Capturable;
+                bool runway = (ab.runways != null && ab.runways.Length > 0) || (saved?.runways != null && saved.runways.Count > 0);
+                if (capturable && !runway) feet.Add(Round(ab.center.position, cr, 0f, $"{ab.name} centre"));
+            }
+        }
+
+        static Footprint Round(Vector3 c, float radius, float feather, string what) =>
+            new Footprint { Center = c, Right = Vector3.right, Fwd = Vector3.forward, HalfW = radius, HalfL = radius, What = what,
+                            Margin = 0f, Circle = true, Feather = Mathf.Max(0f, feather) };
+
+        /// Whether tree i goes for footprint f (centre c in global coordinates). Round clearings take every tree out
+        /// to the radius, then thin the feather band with a per-tree hash: half the trees at the inner edge, none at the outer.
+        static bool Takes(in Footprint f, Vector3 c, int i, float margin)
+        {
+            if (!f.Circle) return Inside(f, c, trees[i], margin);
+            float dx = trees[i].x - c.x, dz = trees[i].z - c.z;
+            float d = Mathf.Sqrt(dx * dx + dz * dz), r = f.HalfW + margin;
+            if (d <= r) return true;
+            if (f.Feather <= 0f || d > r + f.Feather) return false;
+            return Hash01(i) < 0.5f * (1f - (d - r) / f.Feather);
+        }
+
+        static float Hash01(int i)
+        {
+            uint h = (uint)i * 2654435761u;
+            h ^= h >> 16; h *= 0x7feb352du; h ^= h >> 15; h *= 0x846ca68bu; h ^= h >> 16;
+            return (h & 0xFFFFFF) / 16777216f;
         }
 
         static void AddPoint(List<Footprint> feet, Transform t, float radius, string what)
@@ -156,6 +271,7 @@ namespace TerrainLab.Gameplay
         static bool Inside(in Footprint f, Vector3 c, Vector3 p, float margin)
         {
             float dx = p.x - c.x, dz = p.z - c.z;
+            if (f.Circle) return dx * dx + dz * dz <= (f.HalfW + margin) * (f.HalfW + margin);
             float a = Mathf.Abs(dx * f.Right.x + dz * f.Right.z);
             float b = Mathf.Abs(dx * f.Fwd.x + dz * f.Fwd.z);
             return a <= f.HalfW + margin && b <= f.HalfL + margin;

@@ -1,0 +1,610 @@
+{
+ "format": "terrainlab.race.course/1",
+ "id": "glacier-run",
+ "name": "Glacier Run",
+ "blurb": "Longer and technical: from Halvard's inner bay up the ice, over the col onto the long glacier, west across the upper ice, then north down the valley to Tarn Head Strip.",
+ "variant": "opt-1-v7",
+ "map_prefab": "IronjawSound",
+ "map_size_m": 81920.0,
+ "coords": "NO global metres: x east, y up, z north; map metres = global + map_size_m / 2",
+ "grid": {
+  "heading": 243.29,
+  "speed_ms": 130.0,
+  "approach_m": 6000.0,
+  "go_after_s": 46.15,
+  "slots": [
+   {
+    "x": 4040.3,
+    "y": 125.0,
+    "z": 9856.4
+   },
+   {
+    "x": 4013.3,
+    "y": 125.0,
+    "z": 9910.0
+   },
+   {
+    "x": 3986.3,
+    "y": 125.0,
+    "z": 9963.6
+   },
+   {
+    "x": 3959.3,
+    "y": 125.0,
+    "z": 10017.2
+   },
+   {
+    "x": 4174.2,
+    "y": 125.0,
+    "z": 9923.8
+   },
+   {
+    "x": 4147.3,
+    "y": 125.0,
+    "z": 9977.4
+   },
+   {
+    "x": 4120.3,
+    "y": 125.0,
+    "z": 10031.0
+   },
+   {
+    "x": 4093.3,
+    "y": 125.0,
+    "z": 10084.6
+   }
+  ]
+ },
+ "gates": [
+  {
+   "x": -1360.0,
+   "y": 125.0,
+   "z": 7240.0,
+   "name": "Start",
+   "heading": 273.29,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -4436.1,
+   "y": 183.0,
+   "z": 7416.9,
+   "name": "Inner Bay",
+   "heading": 265.62,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -5780.0,
+   "y": 269.8,
+   "z": 7130.1,
+   "name": "Gate 2",
+   "heading": 280.66,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -7291.4,
+   "y": 215.2,
+   "z": 8125.2,
+   "name": "Lower Ice",
+   "heading": 294.5,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -8522.1,
+   "y": 344.3,
+   "z": 8469.5,
+   "name": "Gate 4",
+   "heading": 305.29,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -9460.0,
+   "y": 606.5,
+   "z": 9805.9,
+   "name": "Gate 5",
+   "heading": 315.45,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -10900.4,
+   "y": 984.7,
+   "z": 10850.9,
+   "name": "The Col",
+   "heading": 311.25,
+   "radius": 100.0,
+   "split": true
+  },
+  {
+   "x": -12362.1,
+   "y": 561.7,
+   "z": 12393.5,
+   "name": "Gate 7",
+   "heading": 285.3,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -14612.9,
+   "y": 175.2,
+   "z": 11750.3,
+   "name": "Gate 8",
+   "heading": 266.42,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -16168.0,
+   "y": 274.6,
+   "z": 11990.5,
+   "name": "Gate 9",
+   "heading": 274.18,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -19376.6,
+   "y": 358.6,
+   "z": 11966.9,
+   "name": "Upper Ice",
+   "heading": 257.78,
+   "radius": 100.0,
+   "split": true
+  },
+  {
+   "x": -20576.7,
+   "y": 474.1,
+   "z": 11432.1,
+   "name": "Gate 11",
+   "heading": 243.3,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -21588.6,
+   "y": 525.6,
+   "z": 10862.3,
+   "name": "Gate 12",
+   "heading": 265.9,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23148.8,
+   "y": 649.1,
+   "z": 11467.0,
+   "name": "Gate 13",
+   "heading": 324.85,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23200.4,
+   "y": 439.8,
+   "z": 13466.5,
+   "name": "Gate 14",
+   "heading": 6.55,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -22238.6,
+   "y": 470.5,
+   "z": 17165.1,
+   "name": "Gate 15",
+   "heading": 353.73,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -22788.0,
+   "y": 726.6,
+   "z": 18237.6,
+   "name": "Gate 16",
+   "heading": 327.56,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23491.5,
+   "y": 629.6,
+   "z": 19146.1,
+   "name": "Gate 17",
+   "heading": 341.87,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23421.8,
+   "y": 369.4,
+   "z": 21830.3,
+   "name": "North Valley",
+   "heading": 359.97,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -23454.3,
+   "y": 206.8,
+   "z": 23035.6,
+   "name": "Gate 19",
+   "heading": 349.36,
+   "radius": 100.0,
+   "split": false
+  },
+  {
+   "x": -24460.0,
+   "y": 134.0,
+   "z": 25840.0,
+   "name": "Finish",
+   "heading": 340.27,
+   "radius": 100.0,
+   "split": false
+  }
+ ],
+ "rules": {
+  "order": "strict",
+  "missed_gate_penalty_s": 10.0,
+  "jump_start_penalty_s": 5.0,
+  "crash": "respawn_last_gate",
+  "respawn_penalty_s": 0.0,
+  "time_limit_s": 1200.0
+ },
+ "stats": {
+  "length_m": 39398.0,
+  "gates": 21,
+  "eta_s": {
+   "fast jet": 171.3,
+   "attack plane": 218.9,
+   "helicopter": 562.8
+  },
+  "max_gate_alt_m": 985.0,
+  "min_gate_alt_m": 125.0,
+  "warnings": [
+   "The Col: raised 296 m above its ring height for line of sight",
+   "Gate 7: raised 296 m above its ring height for line of sight"
+  ]
+ },
+ "check": [
+  {
+   "i": 0,
+   "map": [
+    39600.0,
+    48200.0
+   ],
+   "alt": 125.0,
+   "ground": 0.0,
+   "heading": 273.29,
+   "radius": 100.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Start",
+   "split": false
+  },
+  {
+   "i": 1,
+   "map": [
+    36523.9,
+    48376.9
+   ],
+   "alt": 183.0,
+   "ground": 0.9,
+   "heading": 265.62,
+   "radius": 100.0,
+   "turn_deg": -15.3,
+   "vmax_ms": 440.3,
+   "raised_m": 57.1,
+   "name": "Inner Bay",
+   "split": false
+  },
+  {
+   "i": 2,
+   "map": [
+    35180.0,
+    48090.1
+   ],
+   "alt": 269.8,
+   "ground": 87.6,
+   "heading": 280.66,
+   "radius": 100.0,
+   "turn_deg": 45.4,
+   "vmax_ms": 249.8,
+   "raised_m": 57.1,
+   "name": "Gate 2",
+   "split": false
+  },
+  {
+   "i": 3,
+   "map": [
+    33668.6,
+    49085.2
+   ],
+   "alt": 215.2,
+   "ground": 35.2,
+   "heading": 294.5,
+   "radius": 100.0,
+   "turn_deg": -17.7,
+   "vmax_ms": 394.5,
+   "raised_m": 55.0,
+   "name": "Lower Ice",
+   "split": false
+  },
+  {
+   "i": 4,
+   "map": [
+    32437.9,
+    49429.5
+   ],
+   "alt": 344.3,
+   "ground": 143.9,
+   "heading": 305.29,
+   "radius": 100.0,
+   "turn_deg": 39.3,
+   "vmax_ms": 260.7,
+   "raised_m": 69.8,
+   "name": "Gate 4",
+   "split": false
+  },
+  {
+   "i": 5,
+   "map": [
+    31500.0,
+    50765.9
+   ],
+   "alt": 606.5,
+   "ground": 339.1,
+   "heading": 315.45,
+   "radius": 100.0,
+   "turn_deg": -19.0,
+   "vmax_ms": 430.7,
+   "raised_m": 142.3,
+   "name": "Gate 5",
+   "split": false
+  },
+  {
+   "i": 6,
+   "map": [
+    30059.6,
+    51810.9
+   ],
+   "alt": 984.7,
+   "ground": 564.2,
+   "heading": 311.25,
+   "radius": 100.0,
+   "turn_deg": 10.6,
+   "vmax_ms": 604.0,
+   "raised_m": 295.5,
+   "name": "The Col",
+   "split": true
+  },
+  {
+   "i": 7,
+   "map": [
+    28597.9,
+    53353.5
+   ],
+   "alt": 561.7,
+   "ground": 137.4,
+   "heading": 285.3,
+   "radius": 100.0,
+   "turn_deg": -62.5,
+   "vmax_ms": 258.0,
+   "raised_m": 295.5,
+   "name": "Gate 7",
+   "split": false
+  },
+  {
+   "i": 8,
+   "map": [
+    26347.1,
+    52710.3
+   ],
+   "alt": 175.2,
+   "ground": 29.7,
+   "heading": 266.42,
+   "radius": 100.0,
+   "turn_deg": 24.7,
+   "vmax_ms": 369.3,
+   "raised_m": 20.5,
+   "name": "Gate 8",
+   "split": false
+  },
+  {
+   "i": 9,
+   "map": [
+    24792.0,
+    52950.5
+   ],
+   "alt": 274.6,
+   "ground": 129.1,
+   "heading": 274.18,
+   "radius": 100.0,
+   "turn_deg": -9.2,
+   "vmax_ms": 609.5,
+   "raised_m": 20.5,
+   "name": "Gate 9",
+   "split": false
+  },
+  {
+   "i": 10,
+   "map": [
+    21583.4,
+    52926.9
+   ],
+   "alt": 358.6,
+   "ground": 233.6,
+   "heading": 257.78,
+   "radius": 100.0,
+   "turn_deg": -23.6,
+   "vmax_ms": 345.7,
+   "raised_m": 0.0,
+   "name": "Upper Ice",
+   "split": true
+  },
+  {
+   "i": 11,
+   "map": [
+    20383.3,
+    52392.1
+   ],
+   "alt": 474.1,
+   "ground": 344.1,
+   "heading": 243.3,
+   "radius": 100.0,
+   "turn_deg": -5.4,
+   "vmax_ms": 686.2,
+   "raised_m": 3.0,
+   "name": "Gate 11",
+   "split": false
+  },
+  {
+   "i": 12,
+   "map": [
+    19371.4,
+    51822.3
+   ],
+   "alt": 525.6,
+   "ground": 350.6,
+   "heading": 265.9,
+   "radius": 100.0,
+   "turn_deg": 50.6,
+   "vmax_ms": 216.1,
+   "raised_m": 49.4,
+   "name": "Gate 12",
+   "split": false
+  },
+  {
+   "i": 13,
+   "map": [
+    17811.2,
+    52427.0
+   ],
+   "alt": 649.1,
+   "ground": 477.6,
+   "heading": 324.85,
+   "radius": 100.0,
+   "turn_deg": 67.3,
+   "vmax_ms": 218.5,
+   "raised_m": 46.4,
+   "name": "Gate 13",
+   "split": false
+  },
+  {
+   "i": 14,
+   "map": [
+    17759.6,
+    54426.5
+   ],
+   "alt": 439.8,
+   "ground": 314.8,
+   "heading": 6.55,
+   "radius": 100.0,
+   "turn_deg": 16.1,
+   "vmax_ms": 519.0,
+   "raised_m": 0.0,
+   "name": "Gate 14",
+   "split": false
+  },
+  {
+   "i": 15,
+   "map": [
+    18721.4,
+    58125.1
+   ],
+   "alt": 470.5,
+   "ground": 224.2,
+   "heading": 353.73,
+   "radius": 100.0,
+   "turn_deg": -41.7,
+   "vmax_ms": 245.2,
+   "raised_m": 121.3,
+   "name": "Gate 15",
+   "split": false
+  },
+  {
+   "i": 16,
+   "map": [
+    18172.0,
+    59197.6
+   ],
+   "alt": 726.6,
+   "ground": 557.5,
+   "heading": 327.56,
+   "radius": 100.0,
+   "turn_deg": -10.6,
+   "vmax_ms": 484.4,
+   "raised_m": 44.1,
+   "name": "Gate 16",
+   "split": false
+  },
+  {
+   "i": 17,
+   "map": [
+    17468.5,
+    60106.1
+   ],
+   "alt": 629.6,
+   "ground": 460.5,
+   "heading": 341.87,
+   "radius": 100.0,
+   "turn_deg": 39.2,
+   "vmax_ms": 247.5,
+   "raised_m": 44.1,
+   "name": "Gate 17",
+   "split": false
+  },
+  {
+   "i": 18,
+   "map": [
+    17538.2,
+    62790.3
+   ],
+   "alt": 369.4,
+   "ground": 178.2,
+   "heading": 359.97,
+   "radius": 100.0,
+   "turn_deg": -3.0,
+   "vmax_ms": 930.3,
+   "raised_m": 63.3,
+   "name": "North Valley",
+   "split": false
+  },
+  {
+   "i": 19,
+   "map": [
+    17505.7,
+    63995.6
+   ],
+   "alt": 206.8,
+   "ground": 18.4,
+   "heading": 349.36,
+   "radius": 100.0,
+   "turn_deg": -18.2,
+   "vmax_ms": 378.3,
+   "raised_m": 63.3,
+   "name": "Gate 19",
+   "split": false
+  },
+  {
+   "i": 20,
+   "map": [
+    16500.0,
+    66800.0
+   ],
+   "alt": 134.0,
+   "ground": 9.0,
+   "heading": 340.27,
+   "radius": 100.0,
+   "turn_deg": 0.0,
+   "vmax_ms": null,
+   "raised_m": 0.0,
+   "name": "Finish",
+   "split": false
+  }
+ ]
+}
