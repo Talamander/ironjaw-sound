@@ -3,6 +3,25 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## 1.1.1 (2026-11-01)
+
+### Fixed
+- Bridge decks and their approaches now clear the original terrain, and the AI road points follow the driving
+  surface. Short ramps blend into the existing land roads without lowering terrain. The Halvard fork has a clear
+  connection, and duplicate Fenwick bridge decks and their AI roads are disabled. Thanks to B-Rad_shArts for the
+  bridge report.
+
+### Known issues
+- Escalation remains unchanged from 1.1.0. Enemy air attacks can still interrupt Dunmore West helicopter takeoffs,
+  and opening AI spawns can occupy both Graylock South jet hangars. The attempted mission fix did not meet all
+  acceptance conditions and is not included.
+- The steep road 87 headland north of Bridge_25 and the narrow coastal road strips need a map rebuild. Vehicles
+  can still leave a bridge while avoiding closely packed traffic; this patch does not change traffic AI.
+
+### Plugins
+- All four plugins are version 1.1.1. Only TerrainLabNOPatch has runtime code changes. The map bundle is unchanged,
+  so mixed-version multiplayer compatibility is preserved.
+
 ## 1.1.0 (2026-11-01)
 
 ### New
@@ -22,10 +41,6 @@ named after the terrain build (v9) and a date.
   their proper height in every mission. Until now they were placed 2 to 29 m too low, so factories looked half
   buried. Thanks to migmadmarine for the report.
 - Mission sites and parked vehicles get round clearings in the trees, so targets and landing zones are easier to see.
-
-### Known issues
-- AI vehicles still get stuck at some road and bridge joins on the east side of the map. A fix is in progress.
-  Thanks to B-Rad_shArts for the report.
 
 ### Plugins
 - All four plugins are version 1.1.0. TerrainLabGameplay, TerrainLabNOPatch and TerrainLabRace have code changes.

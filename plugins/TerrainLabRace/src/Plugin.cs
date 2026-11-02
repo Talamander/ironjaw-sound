@@ -20,7 +20,7 @@ namespace TerrainLab.Race
     /// splits and results as server chat messages, which every client shows even without the plugin.
     /// On any machine with the plugin it also draws the gates and a timer for the local aircraft.
     /// </summary>
-    [BepInPlugin("talamander.terrainlab.race", "TerrainLabRace", "1.1.0")]
+    [BepInPlugin("talamander.terrainlab.race", "TerrainLabRace", "1.1.1")]
     public class Plugin : BaseUnityPlugin
     {
         internal static BepInEx.Logging.ManualLogSource Log;

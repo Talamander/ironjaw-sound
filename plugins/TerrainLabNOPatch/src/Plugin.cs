@@ -22,7 +22,7 @@ namespace TerrainLab.NOPatch
     {
         public const string Guid = "talamander.terrainlab.nopatch";
         public const string Name = "TerrainLabNOPatch";
-        public const string Version = "1.1.0";
+        public const string Version = "1.1.1";
 
         internal static ManualLogSource Log;
         internal static Plugin Instance;
@@ -107,6 +107,9 @@ namespace TerrainLab.NOPatch
         internal static ConfigEntry<string> OceanFloats;
         internal static ConfigEntry<string> OceanShoreFoam;
 
+        // 8: bridge and road fixes for the shipped map bundle (BridgeFix.cs)
+        internal static ConfigEntry<bool> BridgesEnabled;
+
         void Awake()
         {
             Instance = this;
@@ -139,6 +142,12 @@ namespace TerrainLab.NOPatch
                 "A separate key from Floats so cfg files written by older versions get the new default.");
             OceanLogProperties = Config.Bind("7.Ocean", "LogProperties", false,
                 "Log the water shader's property list and values once per session.");
+
+            BridgesEnabled = Config.Bind("8.Bridges", "Enabled", true,
+                "Fix the shipped Ironjaw Sound bridges at load time. Raises deck profiles above the original terrain, adds short " +
+                "approaches and matches AI road heights to the driving surface. Hides the two duplicate Fenwick decks and removes " +
+                "their roads and the obsolete Halvard Z-bend from the AI graph. Terrain remains unchanged. Checks the shipped " +
+                "mesh signatures before applying the fix.");
 
             TerrainMaterialEnabled = Config.Bind("1.TerrainMaterial", "Enabled", true,
                 "Patch 1: put GameAssets.terrainMaterial on our terrain MeshColliders so the game's identity checks treat them as terrain.");

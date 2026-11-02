@@ -65,6 +65,7 @@ namespace TerrainLab.NOPatch
             Run("4+2 detail system and trees", Plugin.DetailSystemEnabled.Value, () => DetailSystemPatch.Apply(ctx));
             if (!Plugin.DetailSystemEnabled.Value && Plugin.TreesEnabled.Value)
                 Plugin.Log.LogWarning("[2 trees] skipped: trees need the detail system (4.DetailSystem.Enabled = false).");
+            Run("8 bridges", Plugin.BridgesEnabled.Value, () => BridgeFix.ApplyDecks(ctx));
             Run("diagnostics (after)", Plugin.DiagnosticsEnabled.Value, () => Diagnostics.LogMapAfter(ctx));
             OurAssets.Release();
         }

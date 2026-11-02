@@ -21,10 +21,13 @@
 Ironjaw Sound is a free map for [Nuclear Option](https://store.steampowered.com/app/2168680/). It is
 fan-made and not affiliated with Shockfront Studios.
 
-**Status: 1.1.0.** Made for Nuclear Option 0.34.1 (Steam build 26327221). This release adds Icebreaker,
-reworks Escalation with forward helicopter bases and a Boscali carrier, fixes sunken mission buildings,
-and clears trees around mission sites and parked vehicles. All 16 earlier missions remain, for 17 in total.
-The map bundle is unchanged from 1.0.0–1.0.3, so those versions can join the same multiplayer game.
+**Status: 1.1.1.** Made for Nuclear Option 0.34.1 (Steam build 26327221). This patch repairs bridge
+surfaces and AI road connections on the east side without cutting the terrain. Short approaches blend into the
+existing land roads. Thanks to B-Rad_shArts for the bridge report.
+
+All 17 missions remain unchanged from 1.1.0, including Icebreaker and Escalation with its forward FARPs and carrier.
+The attempted Escalation takeoff fix did not meet all acceptance conditions and is not included.
+The map bundle is unchanged from 1.0.0–1.1.0, so those versions can join the same multiplayer game.
 The package checksum, signature and all 74 manifest files have been checked. Tested on Linux only so far.
 Please report what you see.
 
@@ -107,7 +110,7 @@ NOMM also installs BepInEx and NOMapLoader for you, and offers new versions when
 2. Download `NOMapLoader_1.0.5.dll` from
    [NOMapLoader's releases](https://github.com/MinecrackTyler/NOMapLoader/releases/tag/v1.0.5) and put
    it in `BepInEx/plugins/NOMapLoader/`.
-3. Download `IronjawSound-1.1.0.zip` from
+3. Download `IronjawSound-1.1.1.zip` from
    [Releases](https://github.com/Talamander/ironjaw-sound/releases).
 4. Make the folder `BepInEx/plugins/IronjawSound/` and unzip the whole zip into it. The DLLs and
    `map_ironjawsound` go directly in that folder, not in a subfolder.
@@ -118,7 +121,7 @@ To find your Nuclear Option folder: in Steam, right-click Nuclear Option, then *
 **Browse local files**.
 
 To check that it loaded, open `BepInEx/LogOutput.log` in your Nuclear Option folder. It should have the
-line `Ironjaw Sound 1.1.0 (2026-11-01), 74 files present with the expected sizes.`
+line `Ironjaw Sound 1.1.1 (2026-11-01), 74 files present with the expected sizes.`
 
 ### Updating from v9
 
@@ -147,7 +150,7 @@ Put the four files in one folder and open a terminal there.
 On Windows (PowerShell):
 
 ```powershell
-Get-FileHash IronjawSound-1.1.0.zip -Algorithm SHA256
+Get-FileHash IronjawSound-1.1.1.zip -Algorithm SHA256
 cmd /c "ssh-keygen -Y verify -f SHA256SUMS.allowed_signers -I ironjaw-sound-release -n file -s SHA256SUMS.sig < SHA256SUMS"
 ```
 
@@ -216,14 +219,15 @@ after the problem, before you start the game again, because the game rewrites it
 
 ## Known issues
 
-- AI vehicles still get stuck at some road and bridge joins on the east side. Thanks to B-Rad_shArts for the report.
-- In Escalation, enemy fire can stop helicopters taking off from Dunmore West, and opening AI spawns can fill both Graylock South jet hangars. Follow-up fixes are in progress.
+- The steep road 87 headland north of Bridge_25 and narrow coastal road strips need a map rebuild.
+- Closely packed AI traffic can still leave bridges while avoiding other vehicles.
+- In Escalation, enemy fire can stop helicopters taking off from Dunmore West, and opening AI spawns can fill both Graylock South jet hangars. The attempted mission fix is not included in 1.1.1.
 - In Fjord Confrontation and Supply Line, Primeva's armour starts at the Cinder Gate depot, which sits in a
   closed mountain basin. It has to drive about 30 km of road to reach Dunmore Crossing, so it arrives late.
   In Escalation it starts on the road out of the basin since 1.0.2.
 - The track out of that basin is a rough mountain track, up to 34% steep in places. Vehicles get through,
   but slowly. It may be graded in a later release.
-- 1.1.0 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
+- 1.1.1 has only been tested on Linux. 1.0.0 is being played online by others, but not yet on Windows by us.
 
 ## More mods
 

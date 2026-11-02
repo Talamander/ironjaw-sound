@@ -8,7 +8,7 @@
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>TerrainLabNOPatch</AssemblyName>
     <RootNamespace>TerrainLab.NOPatch</RootNamespace>
-    <Version>1.1.0</Version>
+    <Version>1.1.1</Version>
     <LangVersion>9.0</LangVersion>
     <Nullable>disable</Nullable>
     <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
@@ -20,6 +20,12 @@
     <GameManagedDir Condition="'$(GameManagedDir)' == ''">/mnt/games/SteamLibrary/steamapps/common/Nuclear Option/NuclearOption_Data/Managed</GameManagedDir>
     <BepInExCoreDir Condition="'$(BepInExCoreDir)' == ''">/mnt/games/no-maptest/Nuclear Option/BepInEx/core</BepInExCoreDir>
   </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Runtime bridge data; the map bundle remains unchanged. -->
+    <EmbeddedResource Include="res/ironjaw_bridges_1_0_3.txt" LogicalName="ironjaw_bridges_1_0_3.txt" />
+    <EmbeddedResource Include="res/ironjaw_approaches_1_1_1.txt" LogicalName="ironjaw_approaches_1_1_1.txt" />
+  </ItemGroup>
 
   <ItemGroup>
     <Reference Include="$(BepInExCoreDir)/BepInEx.dll" Private="false" />
