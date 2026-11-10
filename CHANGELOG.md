@@ -3,6 +3,27 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## Unreleased
+
+### Fixed
+- The game no longer breaks when the war reaches the tactical or strategic nuclear threshold. Ironjaw Sound has no
+  threshold music of its own, and the game crashed while trying to play it, half-way through handling the kill
+  that raised the score. Players could then not pick an airbase, respawned at their last base and saw the old
+  aircraft's HUD over the new one. The map now plays the stock threshold music, and a missing tune is skipped
+  instead of crashing. Thanks to Supernovaman for the report (issue #1).
+
+### Notes
+- The two airframe reserve sliders in Customise Mission (reserve airframes, extra reserves per player) keep that
+  many of every aircraft type back from the AI for the players. Raising them gives the AI fewer aircraft, not more.
+  Most Ironjaw Sound missions start with 2 to 8 of each type, so a high reserve leaves the AI nothing to fly, and
+  the side with players runs out first because of the per-player reserve. To get more AI aircraft, raise the
+  aircraft counts in the faction inventory or the AI aircraft limit instead. This works the same as in 1.0.2 and
+  in the stock missions (issue #2).
+
+### Plugins
+- TerrainLabNOPatch: patch 9 (nuclear threshold music), config `9.NuclearMusic.StockFallback`. The map bundle is
+  unchanged.
+
 ## 1.1.1 (2026-11-01)
 
 ### Fixed

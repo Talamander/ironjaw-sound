@@ -110,6 +110,9 @@ namespace TerrainLab.NOPatch
         // 8: bridge and road fixes for the shipped map bundle (BridgeFix.cs)
         internal static ConfigEntry<bool> BridgesEnabled;
 
+        // 9: nuclear threshold music fallback (NuclearMusicFix.cs)
+        internal static ConfigEntry<bool> NuclearMusicEnabled;
+
         void Awake()
         {
             Instance = this;
@@ -148,6 +151,10 @@ namespace TerrainLab.NOPatch
                 "approaches and matches AI road heights to the driving surface. Hides the two duplicate Fenwick decks and removes " +
                 "their roads and the obsolete Halvard Z-bend from the AI graph. Terrain remains unchanged. Checks the shipped " +
                 "mesh signatures before applying the fix.");
+
+            NuclearMusicEnabled = Config.Bind("9.NuclearMusic", "StockFallback", true,
+                "When the tactical or strategic nuclear threshold is reached on Ironjaw Sound, play the stock map's threshold " +
+                "music (the map has none of its own). The crash guard for missing music is always on.");
 
             TerrainMaterialEnabled = Config.Bind("1.TerrainMaterial", "Enabled", true,
                 "Patch 1: put GameAssets.terrainMaterial on our terrain MeshColliders so the game's identity checks treat them as terrain.");
