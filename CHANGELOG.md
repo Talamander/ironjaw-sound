@@ -3,7 +3,7 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
-## Unreleased
+## 1.1.2 (2026-11-11)
 
 ### Fixed
 - The game no longer breaks when the war reaches the tactical or strategic nuclear threshold. Ironjaw Sound has no

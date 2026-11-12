@@ -27,7 +27,7 @@ namespace TerrainLab.Gameplay
     /// It also removes the baked trees and TerrainLabScatter rocks that stand on mission buildings and airbase
     /// landing/service points, locally on each client (see TreeClear.cs, config section TreeClear).
     /// </summary>
-    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.1.1")]
+    [BepInPlugin("talamander.terrainlab.gameplay", "TerrainLabGameplay", "1.1.2")]
     public class Plugin : BaseUnityPlugin
     {
         internal static ConfigEntry<bool> Enabled;
