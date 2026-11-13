@@ -3,6 +3,27 @@
 All notable changes to Ironjaw Sound. Versions follow semantic versioning from 1.0.0 on. Earlier builds were
 named after the terrain build (v9) and a date.
 
+## 1.1.3 (2026-11-12)
+
+### Changed
+- More AI aircraft in eleven missions, so both sides keep flying after the first wave (issue #3, thanks to Veebav
+  for the report). The AI only takes off in a type while its side has more of that type than the reserve, and the
+  missions without aircraft factories started with so few airframes that after four to eight AI sorties nothing
+  took off again, often only COINs and trainers.
+  - SAM Hunt, Tarn Head Raid, Tarn Bay Strike, Port Ansel Defence, Gannet Sound Defence: about twice the aircraft
+    per side (12 COIN, 8 trainers, 6 each of the two fighters, 4 to 5 of the rest, 2 EW), and the reserve is now
+    1 per player instead of 2 plus 1 per player, as in the stock Carrier Duel.
+  - Sill Strike: the same change at a smaller size, AI limit 4 (was 3).
+  - Island Hop: more helicopters (10 UH-90, 8 attack helicopters, 6 tiltrotors) and more of everything else, AI
+    limit 5 (was 4), reserve 1 per player.
+  - Fjord Confrontation, Supply Line, Ostrin Confrontation, Escalation North: every starting type at 3 or more, so
+    the AI on the players' side flies more than COINs before the factories catch up. AI limit 4 in Fjord
+    Confrontation and Supply Line (was 3) and 5 in Ostrin Confrontation (was 3; it has the fewest factories).
+  - Escalation, Icebreaker, Free Flight and the air races are unchanged.
+- Missions you edited yourself are kept; the mission installer only updates the ones that came from an earlier
+  release. The map bundle and plugins are unchanged apart from the version, so 1.1.2 and 1.1.3 players can still
+  play together (the host's mission decides).
+
 ## 1.1.2 (2026-11-11)
 
 ### Fixed
